@@ -65,6 +65,11 @@ function expressSetup (config = { useBasicAuth: false, debug: false }) {
 		path           = require( 'path' ),
 		app            = express();
 
+	// Add a dedicated health check endpoint that bypasses authentication
+	app.get('/health', (req, res) => {
+		res.status(200).send('OK');
+	});
+
 	if (config.useBasicAuth) {
 		app.use( expressBasicAuth({
 			users: {

@@ -115,8 +115,8 @@ if [ -z "$SERVICE_EXISTS" ]; then
   # Create load balancer
   LB_ARN=$(aws elbv2 create-load-balancer --name lobium-lb --subnets $SUBNET_ID_1 $SUBNET_ID_2 --security-groups $SG_ID --region $AWS_REGION --query "LoadBalancers[0].LoadBalancerArn" --output text)
   
-  # Create target group
-  TG_ARN=$(aws elbv2 create-target-group --name lobium-tg --protocol HTTP --port 8080 --vpc-id $VPC_ID --target-type ip --health-check-path "/" --region $AWS_REGION --query "TargetGroups[0].TargetGroupArn" --output text)
+  # Create target group with dedicated health check endpoint
+  TG_ARN=$(aws elbv2 create-target-group --name lobium-tg --protocol HTTP --port 8080 --vpc-id $VPC_ID --target-type ip --health-check-path "/health" --region $AWS_REGION --query "TargetGroups[0].TargetGroupArn" --output text)
   
   # Create listener
   aws elbv2 create-listener --load-balancer-arn $LB_ARN --protocol HTTP --port 80 --default-actions Type=forward,TargetGroupArn=$TG_ARN --region $AWS_REGION

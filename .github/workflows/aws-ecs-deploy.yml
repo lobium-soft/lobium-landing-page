@@ -142,7 +142,7 @@ jobs:
               --port 8080 \
               --vpc-id ${{ steps.networking.outputs.vpc_id }} \
               --target-type ip \
-              --health-check-path "/" \
+              --health-check-path "/health" \
               --query "TargetGroups[0].TargetGroupArn" \
               --output text)
             
