@@ -1,0 +1,34 @@
+include ../blurb/_blurb
+include ../lin-icon/_lin-icon
+
+// What we do
+section#what-we-do.section.section-lg.bg-transparent.text-center
+	.container
+		h2( data-animate!={ class: 'fadeInUp' } ) Digital marketing solutions that
+			| #[br.d-none.d-md-block]
+			| change the industry
+		.row.row-offset-lg.row-30
+			.col-md-6.col-lg-4( data-animate!={ class: 'fadeInUp' } )
+				+blurb({
+					media:     'media-md flex-column',
+					title:     'Content marketing',
+					text:      'Our team of content marketing experts will help you develop an efficient content strategy, as well as the content to go with it.',
+					textClass: 'lead'
+				})
+					+lin-idea.lin-lg.blurb-icon-svg
+			.col-md-6.col-lg-4( data-animate!={ class: 'fadeInUp' } )
+				+blurb({
+					media:     'media-md flex-column',
+					title:     'Search engine optimization',
+					text:      'SEO is the process of achieving high ranked positions in search engines’ results making your website more visible to the public.',
+					textClass: 'lead'
+				})
+					+lin-code.lin-lg.blurb-icon-svg
+			.col-md-6.col-lg-4( data-animate!={ class: 'fadeInUp' } )
+				+blurb({
+					media:     'media-md flex-column',
+					title:     'Social media marketing',
+					text:      'With our SMM services, you will always be abreast of progress and explore the endless opportunities that social media offer you.',
+					textClass: 'lead'
+				})
+					+lin-certificate.lin-lg.blurb-icon-svg

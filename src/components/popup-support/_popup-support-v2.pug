@@ -1,0 +1,23 @@
+// Popup support
+#popup-support.popup.popup-support.text-start.modal( tabindex='-1', role='dialog' )
+	.modal-dialog( role='document' )
+		.modal-content.slideInLeft
+			button.close( type='button', data-dismiss='modal', aria-label='Close' )
+				span( aria-hidden='true' ) ×
+			.modal-header.bg-gradient-orange-gold.context-dark
+				h4.fw-medium.font-family-base Get in Touch with Us
+			.modal-body
+				p Leave your message in the form below, and we will reach out to you as fast as possible!
+				//RD Mailform
+				form.rd-mailform( data-form-output='popup-support-form-output', data-form-type='contact', method='post', action='components/rd-mailform/rd-mailform.php' )
+					.form-group
+						textarea.form-control( name='message', placeholder='Message *', rows='6', data-constraints='@Required' )
+					.form-group
+						input.form-control( type='email', name='email', placeholder='Email address *', data-constraints='@Email @Required' )
+					.form-group
+						input.form-control( type='text', name='name', placeholder='First name *', data-constraints='@Required' )
+					.offset-xxs
+						button.btn.btn-round.btn-secondary.btn-nuka( type='submit' ) Send!
+							span.btn-overlay
+
+#popup-support-form-output.form-output.snackbar.snackbar-secondary

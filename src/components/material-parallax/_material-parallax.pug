@@ -1,0 +1,8 @@
+//- Parallax Section
+	@param {object} obj - parameters storage
+	@param {string} data.img - image path
+	@param {string} data.innerClass - content wrapper class
+mixin parallax( data )
+	section.section.parallax-container( data-parallax-img= data.img )&attributes( attributes )
+		.parallax-content( class= data.innerClass )
+			block

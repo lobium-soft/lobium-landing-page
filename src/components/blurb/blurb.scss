@@ -1,0 +1,60 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../base/mixins";
+@import "../bootstrap/scss/mixins";
+
+// Base
+.blurb-icon {
+	color: $gray-700;
+}
+
+
+// Spacing
+* + .blurb-text {
+	margin-top: px-to-rem( 10px );
+}
+
+
+// Modifying
+.blurb-boxed {
+	padding: px-to-rem( 30px );
+	background: $white;
+	box-shadow: $box-shadow;
+	transition: $transition-base;
+}
+
+
+// Contexts
+.desktop {
+	.blurb-boxed:hover {
+		box-shadow: $box-shadow-sm;
+		transform: translateY( -20px );
+	}
+}
+
+
+// Media
+@include media-breakpoint-up(xl) {
+	.blurb-boxed {
+		padding: px-to-rem( 30px, 40px, 70px );
+	}
+}
+
+@include media-breakpoint-up(xxl){
+	* + .blurb-text {
+		margin-top: px-to-rem( 20px );
+	}
+
+	.blurb-boxed {
+		* + .blurb-text {
+			margin-top: px-to-rem( 14px );
+		}
+	}
+}
+
+
+// Layouts
+@import "blurb-modern";
+@import "blurb-creative";

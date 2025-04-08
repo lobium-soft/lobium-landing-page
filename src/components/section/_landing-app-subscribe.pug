@@ -1,0 +1,14 @@
+// Subscribe to our newsletter
+section.sectoin.section-lg.bg-transparent.text-center
+	.container
+		.row.justify-content-center
+			.col-auto( data-animate!={ class: 'fadeInUp' } )
+				h4 Subscribe to our newsletter
+				p Enter your e-mail below to stay in the know about our news and updates.
+				form.rd-mailform.form-inline.justify-content-center.group-10( data-form-output='form-output-subscribe', data-form-type='subscribe', method='post', action='components/rd-mailform/rd-mailform.php' )
+					.form-inline-group
+						input.form-control.form-control-round( type='email', name='email', placeholder='Your email address *', data-constraints='@Email @Required' )
+					button.btn.btn-round.btn-primary.btn-nuka( type='submit' ) Subscribe
+						span.btn-overlay
+
+			#form-output-subscribe.form-output.snackbar.snackbar-secondary

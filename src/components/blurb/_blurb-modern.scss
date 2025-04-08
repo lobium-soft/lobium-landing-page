@@ -1,0 +1,33 @@
+// Base
+.blurb-modern {
+	background-color: $gray-100;
+	padding: px-to-rem( 40px, 20px, 0 );
+}
+
+.blurb-modern-year {
+	transform: translateY( 42% );
+}
+
+
+// Spacing
+* + .blurb-modern-text {
+	margin-top: px-to-rem( 10px );
+}
+
+
+// Media
+@include media-breakpoint-up(md) {
+	* + .blurb-modern-text {
+		margin-top: px-to-rem( 20px );
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	.blurb-modern {
+		padding: px-to-rem( 75px, 40px, 0 );
+	}
+
+	* + .blurb-modern-year {
+		margin-top: px-to-rem( 18px );
+	}
+}

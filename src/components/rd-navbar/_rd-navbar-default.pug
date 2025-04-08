@@ -1,0 +1,30 @@
+include ../logo/_logo
+include _navigation
+
+header.section.page-header
+	//RD Navbar
+	.rd-navbar-wrap
+		nav.rd-navbar.rd-navbar-dark.rd-navbar-absolute(
+			data-rd-navbar={
+				responsive: {
+					1200: { autoHeight: false }
+				}
+			})
+			.rd-navbar-main-outer
+				.rd-navbar-main
+					//RD Navbar Panel
+					.rd-navbar-panel
+						//RD Navbar Toggle
+						button.rd-navbar-toggle( data-rd-navbar-toggle='.rd-navbar-nav-wrap' ): span
+
+						//RD Navbar Brand
+						.rd-navbar-brand
+							+logo
+
+					.rd-navbar-nav-wrap
+						+navigation( menu )
+
+					.rd-navbar-collapse
+						a.btn.btn-round.btn-secondary.btn-nuka( href= buyLink, target='_blank' ) Purchase Template
+							span.btn-overlay
+			.rd-navbar-collapse-toggle.rd-navbar-fixed-element-1( data-rd-navbar-toggle='.rd-navbar-collapse' ): span

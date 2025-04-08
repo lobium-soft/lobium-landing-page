@@ -1,0 +1,52 @@
+include ../input/_input
+
+// Popup appointment
+#popup-appointment.popup.popup-round.text-center.modal( tabindex='-1', role='dialog' )
+	.modal-dialog.modal-size-1( role='document' )
+		.modal-content.bounceIn
+			button.close( type='button', data-dismiss='modal', aria-label='Close' )
+				span( aria-hidden='true' ) ×
+			.modal-body
+				h3 Make an Appointment
+				p.mt-2 Enter your e-mail below to schedule your visit.
+				//RD Mailform
+				form.rd-mailform( data-form-output='popup-appointment-form-output', data-form-type='contact', method='post', action='components/rd-mailform/rd-mailform.php' )
+					.row.row-10.gutters-10
+						.col-12
+							.form-group
+								input.form-control( type='text', name='name', placeholder='Your name *', data-constraints='@Required' )
+						.col-xs-6
+							.form-group
+								input.form-control( type='email', name='email', placeholder='Email address *', data-constraints='@Email @Required' )
+						.col-xs-6
+							.form-group
+								input.form-control( type='text', name='phone', placeholder='Phone *', data-constraints='@Required @PhoneNumber' )
+						.col-xs-6
+							.form-group
+								.select-wrap
+									select.select2( name='service', data-select2-options!={ placeholder: 'Select service *' } )
+										option( label='placeholder' )
+										option Consulting
+										option SEO
+										option SMM
+										option Web Design
+						.col-xs-6
+							.form-group
+								.datetimepicker-group
+									.input-group
+										input.form-control( type='text', name='time', placeholder='Select time *', data-datetimepicker!={ format: 'LT' } )
+										.input-group-append
+											span.input-group-text.input-group-text-nodivider.mdi-clock
+					.offset-xxs
+						button.btn.btn-block.btn-secondary.btn-nuka( type='submit' ) Schedule now
+							span.btn-overlay
+				.offset-xs
+					+checkbox( {
+						id: 'check6'
+					} )
+						| I agree to the
+						| #[a.link.link-primary( href='#' ) Privacy Policy] and
+						| #[a.link.link-primary( href='#' ) Terms of Use],
+						| and want to receive news
+
+#popup-appointment-form-output.form-output.snackbar.snackbar-secondary

@@ -1,0 +1,46 @@
+include ../list/_list
+include ../google-map/_google-map
+
+// Popup contact us
+#popup-contact-us-2.popup.text-start.modal( tabindex='-1', role='dialog' )
+	.modal-dialog.modal-lg( role='document' )
+		.modal-content.slideInRight
+			button.close( type='button', data-dismiss='modal', aria-label='Close' )
+				span( aria-hidden='true' ) ×
+			.modal-body.popup-scroll.p-0
+				.popup-scroll-item.col-6
+					h3.text-primary-orange Get in Touch
+						br
+						| with Us
+					ul.list.list-xl
+						li.list-item
+							.fw-medium.text-700 Address:
+							| 34 Fordham Street, New York, NY
+							br
+							| 10027, USA
+						li.list-item
+							.fw-medium.text-700 Customer Support & Sales dept.:
+							a.link-inherit( href='tel:#' ) +7-495-1234567
+						li.list-item
+							.fw-medium.text-700 Opening hours:
+							| Mon–Sat: 08:00 AM–06:00 PM
+						li.list-item
+							.fw-medium.text-700 Email Address:
+							a.link.link-primary( href='mailto:#' ) mail@demolink.org
+					.offset-sm
+						+list-social({ iconClass: 'icon-md' }).text-700
+
+				.popup-scroll-item.col-6
+					+google-map({
+						center:  { lat: 40.715847, lng: -73.999925 },
+						zoom:    12,
+						markers: {
+							'park': {
+								position: 'Columbus Park, Baxter Street, New York, United State',
+								html:     'Columbus park'
+							}
+						},
+						styles: [{"featureType":"all","elementType":"all","stylers":[{"hue":"#e7ecf0"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#636c81"}]},{"featureType":"administrative.neighborhood","elementType":"labels.text.fill","stylers":[{"color":"#636c81"}]},{"featureType":"administrative.land_parcel","elementType":"labels.text.fill","stylers":[{"color":"#ff0000"}]},{"featureType":"landscape","elementType":"geometry.fill","stylers":[{"color":"#f1f4f6"}]},{"featureType":"landscape","elementType":"labels.text.fill","stylers":[{"color":"#496271"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-70}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"color":"#c6d3dc"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#898e9b"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"visibility":"simplified"},{"saturation":-60}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#d3eaf8"}]}]
+					})#map1.h-100
+
+			.popup-swipe

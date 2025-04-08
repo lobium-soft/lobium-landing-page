@@ -1,0 +1,67 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../base/mixins";
+@import "../bootstrap/scss/mixins";
+
+
+// Brand boxed
+.brand-boxed {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: px-to-rem( 100px );
+	height: px-to-rem( 100px );
+	padding: px-to-rem( 15px );
+	background: $white;
+	box-shadow: $box-shadow;
+	transition: $transition-base;
+}
+
+.brand-boxed-image {
+	width: auto;
+	height: auto;
+	max-height: 100%;
+}
+
+
+// Brand minimal
+.brand-minimal {
+	display: inline-block;
+	transition: $transition-base;
+}
+
+
+// Brand default
+.brand-default-image {
+	width: px-to-rem( 80px );
+}
+
+
+// Contexts
+.desktop {
+	.brand-boxed:hover {
+		box-shadow: 0 0 10px rgba($gray-700, 0.08);
+	}
+
+	.brand-minimal:hover {
+		transform: translateY(-10px);
+	}
+}
+
+
+// Media
+@include media-breakpoint-up(md) {
+	.brand-boxed {
+		width: px-to-rem( 150px );
+		height: px-to-rem( 150px );
+		padding: px-to-rem( 25px );
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	.brand-default-image {
+		width: px-to-rem( 116px );
+	}
+}

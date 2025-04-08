@@ -1,0 +1,27 @@
+.lin-icon {
+  width: auto;
+  height: 1em;
+  fill: currentColor;
+}
+
+.lin-path-primary {
+  fill: #01C9F5;
+}
+
+.lin-path-secondary {
+  fill: #0066FF;
+}
+
+.lin-path-color {
+  fill: currentColor;
+}
+
+.lin-md {
+  width: 3.125rem;
+  height: 3.125rem;
+}
+
+.lin-lg {
+  width: 4.375rem;
+  height: 4.375rem;
+}

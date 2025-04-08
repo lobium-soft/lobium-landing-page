@@ -1,0 +1,18 @@
+include ../quote/_quote
+
+// Our Mission & Vision
+section.section.section-lg.bg-transparent
+	.container
+		.row.row-30.align-items-center.flex-md-row-reverse
+			.col-xs-8.col-md-5.col-lg-6.col-xl-7.text-xl-center( data-animate!={ class: 'fadeInUp', delay: '.1s' } )
+				+img( 'blurs/blur-02-500x406.png' )
+			.col-md-7.col-lg-6.col-xl-5( data-animate!={ class: 'fadeInUp' } )
+				h6 Our Mission & Vision
+				h2 We aim to deliver quality creative solutions
+				p.lead Our team strives to create a customized user experience with a website built to be an incredible advantage.
+				+quote({
+					text: 'Our creativity and unique approach are the key to success of your business!',
+					img: 'persons/person-01-60x60',
+					name: 'Adam Smith',
+					position: 'CEO of Lintense'
+				})

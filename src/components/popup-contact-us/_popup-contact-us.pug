@@ -1,0 +1,54 @@
+include ../list/_list
+include ../input/_input
+
+// Popup contact
+#popup-contact-us.popup.popup-round.text-start.modal( tabindex='-1', role='dialog' )
+	.modal-dialog.modal-lg( role='document' )
+		.modal-content.bounceInLeft
+			button.close( type='button', data-dismiss='modal', aria-label='Close' )
+				span( aria-hidden='true' ) ×
+			.modal-body.popup-scroll.p-0
+				.popup-scroll-item.col-6
+					h3 Get in Touch
+						br
+						| with Us
+					ul.list.list-xl
+						li.list-item
+							.fw-medium.text-700 Address:
+							| 34 Fordham Street, New York, NY
+							br
+							| 10027, USA
+						li.list-item
+							.fw-medium.text-700 Customer Support & Sales dept.:
+							a.link-inherit( href='tel:#' ) +7-495-1234567
+						li.list-item
+							.fw-medium.text-700 Opening Hours:
+							| Mon–Sat: 08:00 AM–06:00 PM
+					.offset-sm
+						+list-social({ iconClass: 'icon-md' }).text-700
+				.popup-scroll-item.col-6
+					//RD Mailform
+					form.rd-mailform( data-form-output='popup-contact-form-output', data-form-type='contact', method='post', action='components/rd-mailform/rd-mailform.php' )
+						.form-group
+							input.form-control( type='email', name='email', placeholder='Email address *', data-constraints='@Email @Required' )
+						.form-group
+							input.form-control( type='text', name='first-name', placeholder='First name *', data-constraints='@Required' )
+						.form-group
+							input.form-control( type='text', name='last-name', placeholder='Last name *', data-constraints='@Required' )
+						.form-group
+							textarea.form-control( name='message', placeholder='Message *', rows='6', data-constraints='@Required' )
+						.offset-xxs
+							button.btn.btn-block.btn-secondary.btn-nuka( type='submit' ) Submit!
+								span.btn-overlay
+					.offset-xs
+						+checkbox( {
+							id: 'check5'
+						} )
+							| I agree to the
+							| #[a.link.link-primary( href='#' ) Privacy Policy] and
+							| #[a.link.link-primary( href='#' ) Terms of Use],
+							| and want to receive news
+
+			.popup-swipe
+
+#popup-contact-form-output.form-output.snackbar.snackbar-secondary

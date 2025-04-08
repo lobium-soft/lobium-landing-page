@@ -1,0 +1,22 @@
+//- Team
+	@param {object} data - data object
+	@param {string} data.img - team img
+	@param {string} data.text - team text
+	@param {string} data.name - team name
+	@param {string} data.position - team position
+mixin team( data )
+	// Team
+	article.team&attributes( attributes )
+		.team-figure
+			+img( data.img )
+			.team-overlay
+				div
+					.team-text= data.text
+					ul.list.list-social.team-list-social
+						li.list-social-item
+							a.icon.icon-sm.icon-social.fa-facebook-f( href='#' )
+						li.list-social-item
+							a.icon.icon-sm.icon-social.fa-instagram( href='#' )
+		.team-name.h4
+			a( href='#' )= data.name
+		.team-position.h6= data.position

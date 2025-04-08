@@ -1,0 +1,55 @@
+include ../wave/_wave
+
+// How to work
+section#how-we-work.section.section-lg.bg-transparent.position-relative.pb-0
+	+wave-light.wave-light-reverse-x
+	.container
+		.text-center( data-animate!={ class: 'fadeInUp' } )
+			h2 How we work
+			h6 Digital marketing is an iterative process, and regardless of the project, we remain by your side to
+				| #[br.d-none.d-lg-block]
+				| continuously improve your efforts and deliver the best results.
+		.row.row-offset-lg.row-30.row-xl-60
+			.col-12( data-animate!={ class: 'fadeInUp' } )
+				+blurb({
+					media:      'media-md',
+					title:      'Situational analysis',
+					titleClass: 'mt-3',
+					text:       'The first thing we do is carrying out an internal and external analysis (SWOT analysis) of the firm to find out its strengths and weaknesses.',
+					textClass:  'lead'
+				}).block.block-center.block-1
+					.icon.icon-circle.icon-md.icon-primary-filled
+						span.h4 01.
+			.col-md-9.offset-md-3( data-animate!={ class: 'fadeInUp' } )
+				+blurb({
+					media:      'media-md',
+					title:      'Marketing goals establishment',
+					titleClass: 'mt-3',
+					text:       'Once you have your strong points in mind, we’ll work on establishing some goals to have a clear idea of where your actions should take you.',
+					textClass:  'lead'
+				}).block.block-center.block-1
+					.icon.icon-circle.icon-md.icon-primary-filled
+						span.h4 02.
+			.col-md-10( data-animate!={ class: 'fadeInUp' } )
+				+blurb({
+					media:      'media-md',
+					title:      'Defining the marketing strategy',
+					titleClass: 'mt-3',
+					text:       'Based on our objectives, we’ll define & carry out different strategies: email marketing campaigns, social media, CRM, web optimization, SEO etc.',
+					textClass:  'lead'
+				}).block.block-center.block-1
+					.icon.icon-circle.icon-md.icon-secondary-filled
+						span.h4 03.
+			.col-md-10.offset-md-2( data-animate!={ class: 'fadeInUp' } )
+				+blurb({
+					media:      'media-md',
+					title:      'Measuring results',
+					titleClass: 'mt-3',
+					text:       'We have to measure every action using KPIs to figure out if we earned the ROI we expected and achieved the goals we set.',
+					textClass:  'lead'
+				}).block.block-center.block-1
+					.icon.icon-circle.icon-md.icon-primary-filled
+						span.h4 04.
+
+		.text-center( style='margin-top: 8%', data-animate!={ class: 'fadeInUp' } )
+			+img( 'blurs/blur-02-444x341.png' )

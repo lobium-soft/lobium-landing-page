@@ -1,0 +1,73 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../base/mixins";
+@import "../bootstrap/scss/mixins";
+
+
+// Base
+.layout {
+	text-align: center;
+}
+
+.layout-figure {
+	display: block;
+	box-shadow: 0 -3px 36px rgba($gray-700, 0.1);
+	transition: .3s ease;
+	cursor: pointer;
+}
+
+.layout-target {
+	cursor: pointer;
+	color: inherit;
+	
+	&:hover {
+	  color: $secondary;
+	}
+}
+
+
+// Spacing
+* + .layout-title {
+	margin-top: px-to-rem( 25px );
+}
+
+
+// Modifying
+.layout-disabled {
+	.layout-figure {
+		position: relative;
+
+		&::before {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+			content: 'Coming Soon';
+			top: 0;
+			right: 0;
+			bottom: 0; 
+			left: 0;
+			font-size: $h4-font-size;
+			line-height: $h4-line-height;
+			font-style: italic;
+			font-weight: 700;
+			font-family: $headings-font-family;
+			color: #D2D4D7;
+			background: rgba($white, .95);
+			pointer-events: none;
+		}
+	}
+}
+
+
+// Contexts
+.desktop {
+	.layout:hover {
+		.layout-figure {
+			transform: translateY(-20px);
+			box-shadow: 0 27px 36px rgba($gray-700, 0.1);
+		}
+	}
+}

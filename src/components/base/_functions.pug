@@ -1,0 +1,41 @@
+-
+	/**
+	* @desc Returns random string
+	* @param {number} length - string length
+	*/
+	function randomStr( length ) {
+		var str = '';
+		for ( var n = 0; n < length; n++ ) str += String.fromCharCode( 97 + Math.random() * 25 );
+		return str;
+	}
+
+	/**
+	* @desc Generates URL from name
+	* @param {string} name
+	* @return {string}
+	*/
+	function genURL( name ) {
+		return name.trim().replace( /\s/g, '-' ).replace( /[\(\)]/g, '' ).toLowerCase() +'.html';
+	}
+
+	function directMenuPass ( item, cb ) {
+		if ( cb ) cb( item );
+		if ( item.child ) {
+			if ( item.child instanceof Array ) {
+				item.child.forEach( function ( child ) {
+					directMenuPass( child, cb );
+				});
+			} else {
+				directMenuPass( item.child, cb );
+			}
+		}
+	}
+
+	function main () {
+		// Setting home page, active elements and generating breadcrumbs
+		directMenuPass( menu, function ( item ) {
+			if ( item.home ) {
+				homePage = item;
+			}
+		});
+	}

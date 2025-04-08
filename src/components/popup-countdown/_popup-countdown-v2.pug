@@ -1,0 +1,17 @@
+// Popup countdown
+#popup-countdown.popup.popup-countdown.text-center.modal( tabindex='-1', role='dialog' )
+	.modal-dialog( role='document' )
+		.modal-content
+			button.close.text-600( type='button', data-dismiss='modal', aria-label='Close' )
+				span( aria-hidden='true' ) ×
+			.modal-body
+				.container
+					.row.justify-content-center
+						.col-md-10.col-lg-8.col-xl-7
+							h2.text-primary-orange Book Your
+								br
+								| Event Tickets
+							h4.mt-2 Reserve your tickets now to enjoy the best event of the year with special guests and unique activities.
+							+countdown({ from: '2020-03-20', to: '2020-12-01' }).countdown-text-primary
+							a.btn.btn-round.btn-secondary.btn-nuka( href='#' ) Book Now
+								span.btn-overlay

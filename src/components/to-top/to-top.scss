@@ -1,0 +1,51 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/mixins";
+
+
+.to-top {
+	position: fixed;
+	right: 15px;
+	bottom: 15px;
+	z-index: 14;
+	width: 40px;
+	height: 40px;
+	font-size: 24px;
+	line-height: 36px;
+	border-radius: 50%;
+	color: $white;
+	background: $primary;
+	box-shadow: 4px 4px 10px rgba( $gray-700, .1 );
+	overflow: hidden;
+	text-align: center;
+	text-decoration: none;
+	transition: $transition-base;
+	transform: scale(0);
+	cursor: pointer;
+
+	&:hover {
+		color: $white;
+		background: $secondary;
+		text-decoration: none;
+	}
+
+	&:focus { color: $white; }
+
+	&.show {
+		transform: scale(1);
+		transition-duration: .3s;
+		transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+	}
+}
+
+html.mobile .to-top,
+html.tablet .to-top { display: none !important; }
+
+@include media-breakpoint-up(sm) {
+	.to-top {
+		right: 40px;
+		bottom: 40px;
+	}
+}

@@ -1,0 +1,70 @@
+include ../wave/_wave
+
+// Our Recent Projects
+section#our-projects.section.section-lg.bg-800.context-dark.text-center.position-relative
+	+wave-dark
+	.container( data-animate!={ class: 'fadeInUp' } )
+		h6 Our Recent Projects
+		h1 Take a look at the recent and featured projects that we have completed
+		p.lead Our team of creative experts and web designers regularly works to deliver the best websites for
+			| #[br.d-none.d-lg-block]
+			| you. Here are some of our recent projects we have worked on.
+		a.btn.btn-round.btn-secondary.btn-nuka( href='#' ) View More
+			span.btn-overlay
+	// Owl Carousel
+	.owl-carousel(
+		data-owl={
+			margin: 20,
+			stagePadding: 46,
+			slideTransition: 'linear',
+			autoplayTimeout: 4000,
+			autoplaySpeed: 4000,
+			responsive: {
+				480: {
+					items: 2
+				},
+				576: {
+					items: 3
+				},
+				992: {
+					items: 4
+				}
+			}
+		}
+	)
+		+img( 'image-02-442x310' )
+		+img( 'image-03-442x310' )
+		+img( 'image-04-442x310' )
+		+img( 'image-05-442x310' )
+		+img( 'image-06-442x310' )
+		+img( 'image-07-442x310' )
+		+img( 'image-08-442x310' )
+		+img( 'image-09-442x310' )
+	// Owl Carousel
+	.owl-carousel( style='margin-top: 20px',
+		data-owl={
+			margin: 20,
+			stagePadding: 46,
+			slideTransition: 'linear',
+			autoplayTimeout: 4500,
+			autoplaySpeed: 4500,
+			responsive: {
+				480: {
+					items: 2
+				},
+				576: {
+					items: 3
+				},
+				992: {
+					items: 4
+				}
+			}
+		}
+	)
+		+img( 'image-10-442x310' )
+		+img( 'image-11-442x310' )
+		+img( 'image-12-442x310' )
+		+img( 'image-13-442x310' )
+		+img( 'image-14-442x310' )
+		+img( 'image-15-442x310' )
+		+img( 'image-16-442x310' )

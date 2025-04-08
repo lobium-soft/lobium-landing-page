@@ -1,0 +1,25 @@
+include ../wave/_wave
+
+// Built Using
+section.section.section-lg.bg-transparent.position-relative
+	+wave-light( style='top: 80%' )
+	.container
+		.row.row-30.flex-md-row-reverse.align-items-center.justify-content-center
+			.col-lg-5( data-animate!={ class: 'fadeInUp' } )
+				.ms-xxl-5
+					h2 Built using the latest technologies
+					p.lead Our app was designed with flexibility and versatility in mind so that you could enjoy all its features on any modern device.
+			.col-lg-6.col-xxl-5( data-animate!={ class: 'fadeInUp' } )
+				.group-20.d-flex.flex-wrap
+					a.brand.brand-boxed( href='#' )
+						+img( 'logos/logo-01-50x71.png' ).brand-boxed-image
+					a.brand.brand-boxed( href='#' )
+						+img( 'logos/logo-02-68x67.png' ).brand-boxed-image
+					a.brand.brand-boxed( href='#' )
+						+img( 'logos/logo-04-38x84.png' ).brand-boxed-image
+					a.brand.brand-boxed( href='#' )
+						+img( 'logos/logo-06-67x71.png' ).brand-boxed-image
+					a.brand.brand-boxed( href='#' )
+						+img( 'logos/logo-05-103x57.png' ).brand-boxed-image
+					a.brand.brand-boxed( href='#' )
+						+img( 'logos/logo-03-94x71.png' ).brand-boxed-image

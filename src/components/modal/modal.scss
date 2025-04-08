@@ -1,0 +1,87 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../base/mixins";
+@import "../bootstrap/scss/mixins";
+@import "../bootstrap/scss/modal";
+
+
+// Base
+.modal {
+	.btn + .btn {
+		margin-top: 0;
+	}
+}
+
+.modal-content {
+	width: calc( 100% - 30px );
+	margin: 30px 15px;
+	border: none
+}
+
+.modal-dialog {
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.modal-body {
+	padding: px-to-rem( 30px );
+}
+
+.close {
+	position: absolute;
+	bottom: calc( 100% + 5px );
+	right: 0;
+	font-size: px-to-rem( 44px );
+	line-height: 1;
+	color: $white;
+
+	&:hover {
+		color: $primary;
+	}
+}
+
+
+// Theming
+.modal-700 {
+	.modal-content {
+		background: $gray-700;
+	}
+}
+
+
+@each $name, $color in $theme-colors {
+	.modal.modal-#{$name} {
+		.modal-content {
+			background: $color;
+		}
+	}
+}
+
+
+// Media
+@include media-breakpoint-between(xs, xs) {
+	.modal-dialog {
+		max-width: $modal-md;
+	}
+}
+
+@include media-breakpoint-up(xs) {
+	.modal-size-1 {
+		max-width: px-to-rem( 540px );
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.modal-body {
+		padding: $modal-inner-padding;
+	}
+
+	.close {
+		right: auto;
+		left: calc( 100% + 5px );
+	}
+}

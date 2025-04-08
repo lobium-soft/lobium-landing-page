@@ -1,0 +1,32 @@
+include ../wave/_wave
+
+// Get in Touch with Us
+section#contacts.section.section-lg.bg-transparent.text-center.position-relative.overflow-hidden( style='padding-bottom: 15%' )
+	+wave-light.wave-light-1.wave-light-reverse-x
+	.container
+		div( data-animate!={ class: 'fadeInUp' } )
+			h2 Get in touch with us
+			p.lead If you have a question regarding our services, feel free
+				| #[br.d-none.d-md-block]
+				| to contact us using the form below.
+		.row.row-offset-sm.justify-content-center
+			.col-md-10.col-lg-9.col-xl-8( data-animate!={ class: 'fadeInUp' } )
+				//RD Mailform
+				form.rd-mailform( data-form-output='form-output-global', data-form-type='contact', method='post', action='components/rd-mailform/rd-mailform.php' )
+					.row.row-20.gutters-20
+						.col-sm-6
+							.form-group
+								input.form-control( type='text', name='name', placeholder='Your name *', data-constraints='@Required' )
+						.col-sm-6
+							.form-group
+								input.form-control( type='text', name='company', placeholder='Company *', data-constraints='@Required' )
+						.col-sm-6
+							.form-group
+								input.form-control( type='email', name='email', placeholder='Your e-mail address *', data-constraints='@Email @Required' )
+						.col-sm-6
+							.form-group
+								input.form-control( type='text', name='phone', placeholder='Phone *', data-constraints='@Required @PhoneNumber' )
+					button.btn.btn-round.btn-secondary.btn-nuka( type='submit' ) Submit
+						span.btn-overlay
+
+			#form-output-global.form-output.snackbar.snackbar-secondary

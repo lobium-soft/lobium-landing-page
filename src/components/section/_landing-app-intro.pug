@@ -1,0 +1,19 @@
+include  ../wave/_wave
+
+// Intro
+section.section.section-lg.bg-primary-violet.context-dark.position-relative
+	+wave-dark-1
+	.container
+		.row.row-30.align-items-center.justify-content-center.justify-content-xl-between
+			.col-xs-8.col-sm-7.col-lg-6.col-xl-5( data-animate!={ class: 'fadeInUp' } )
+				h1 Reliable App for controlling your finances
+				p.lead Lintense is the #1 app for everything finance-related. Available worldwide on iOS and Android.
+				.btns.group-20
+					a.btn.btn-round.btn-primary.btn-nuka( href='#' ) Purchase Now
+						span.btn-overlay
+					a.btn.btn-round.btn-secondary.btn-nuka( href='#' ) Learn More
+						span.btn-overlay
+			.col-8.col-xs-4.col-sm-5.col-lg-6( data-animate!={ class: 'fadeInUp' } )
+				.d-inline-flex.flex-row-reverse.align-items-start.justify-content-center
+					+img( 'image-26-284x590.png' ).w-50.filter-shadow-lg( style='margin-left: -18%' )
+					+img( 'image-18-284x590.png' ).w-50.filter-shadow-lg( style='margin-top: 9%' )

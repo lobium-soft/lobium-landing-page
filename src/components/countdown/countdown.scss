@@ -1,0 +1,100 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/mixins";
+
+
+// Base styles
+.countdown {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	margin: 0 -5px;
+	line-height: 1.2;
+}
+
+.countdown-block {
+	width: 100%;
+	padding: 0 5px;
+	flex-basis: px-to-rem( 80px );
+}
+
+.countdown-wrap {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.countdown-title {
+	font-size: 13px;
+	font-weight: 400;
+	text-transform: capitalize;
+}
+
+.countdown-block-seconds {
+	display: none;
+}
+
+
+// Spacing
+* + .countdown {
+	margin-top: px-to-rem( 30px );
+}
+
+
+// Modifying
+.countdown-boxed {
+	.countdown-wrap {
+		padding: px-to-rem(10px, 5px, 15px);
+		border: none;
+		background: $white;
+	}
+}
+
+.countdown-bordered {
+	.countdown-wrap {
+		padding: px-to-rem(10px, 5px, 15px);
+		border: 1px solid $gray-200;
+	}
+}
+
+.countdown-rounded {
+	.countdown-wrap {
+		border-radius: $border-radius;
+	}
+}
+
+.countdown-gradient-orange-gold {
+		color: $white;
+
+	.countdown-wrap {
+		background-image: linear-gradient( 180deg, $primary-orange 0%, $primary-orange-1 100% );
+	}
+
+	.countdown-counter {
+		color: inherit;
+	}
+}
+
+.countdown-text-primary {
+	color: $primary;
+
+	.countdown-counter {
+		color: inherit;
+	}
+}
+
+
+// Media
+@include media-breakpoint-up(xs) {
+	.countdown-block-seconds {
+		display: block;
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	.countdown + form {
+		margin-top: px-to-rem( 40px );
+	}
+}

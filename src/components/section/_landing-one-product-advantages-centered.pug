@@ -1,0 +1,21 @@
+include ../counter/_counter
+include ../lin-icon/_lin-icon
+
+// Advantages
+section.section.section-lg.context-dark.text-center.position-relative.pb-0
+	.bg-layer.bg-gradient-blue-aqua( style='bottom: 20%' )
+	.container
+		.row.justify-content-center
+			.col-xs-12.col-sm-11.col-md-9.col-lg-7.col-xl-6( data-animate!={ class: 'fadeInUp' } )
+				.media.media-lg.flex-column.flex-xs-row.align-items-center.text-xs-start
+					.media-left
+						+counter-boxed({
+							title:   'Up to',
+							number:  '40',
+							postfix: 'h'
+						})
+							+lin-battery
+					.media-body
+						h2 Let the music play
+						p.lead Listen to your favorite tracks for up to 40 hours without a single recharge thanks to an extended Li-Ion battery of 650 mAh.
+		+img( 'products/product-04-720x600.png' ).filter-shadow-xl.mt-5( data-animate!={ class: 'fadeInUp' } )

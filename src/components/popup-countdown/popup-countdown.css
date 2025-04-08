@@ -1,0 +1,2 @@
+.popup-countdown {	padding-right: 0 !important;}.popup-countdown .modal-dialog {	display: block;	max-width: none;}.popup-countdown .modal-content {	align-items: center;	flex-direction: row;	min-height: inherit;	width: 100%;	margin: 0;	border-radius: 0;	box-shadow: none;}.popup-countdown .modal-body {	width: 100%;	padding: 0;}.popup-countdown .close {	top: 1.875rem;	right: 1.875rem;	bottom: auto;	left: auto;}.popup-countdown .close:hover {	color: rgba(255, 255, 255, 0.7);}
+/*# sourceMappingURL=popup-countdown.css.map */

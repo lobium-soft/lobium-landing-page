@@ -1,0 +1,51 @@
+include ../wave/_wave
+
+// Popup pricing
+#popup-pricing.popup.text-start.modal( tabindex='-1', role='dialog' )
+	.modal-dialog.modal-lg( role='document' )
+		.modal-content.slideInLeft
+			button.close( type='button', data-dismiss='modal', aria-label='Close' )
+				span( aria-hidden='true' ) ×
+			.modal-body.popup-scroll.align-items-center.p-0
+				.popup-scroll-item.col-6
+					.row.row-20
+						.col-12
+							.media.media-xs
+								.media-left
+									.icon.icon-circle.icon-xxs.icon-primary-filled
+										+lin-check
+								.media-body
+									p.fw-medium.text-700 Speed Optimized for WordPress.
+									p.mt-0 Our hosting solutions are 100% optimized for WordPress, the world’s most popular CMS.
+						.col-12
+							.media.media-xs
+								.media-left
+									.icon.icon-circle.icon-xxs.icon-primary-filled
+										+lin-check
+								.media-body
+									p.fw-medium.text-700 99.9% Uptime Commitment.
+									p.mt-0 Our team guarantees that your website will be always available due to 99,9% uptime.
+						.col-12
+							.media.media-xs
+								.media-left
+									.icon.icon-circle.icon-xxs.icon-primary-filled
+										+lin-check
+								.media-body
+									p.fw-medium.text-700 24/7/365 Support
+									p.mt-0 We are always glad to answer all your questions and provide qualified support.
+
+				.popup-scroll-item.col-6
+					article.bg-gradient-orange-gold-vertical-reverse.context-dark.text-center.position-relative.overflow-hidden.py-5.px-3
+						+wave-dark-1.wave-dark-1( style='width: 170%' )
+						.position-relative
+							h4 Featured
+								br
+								| Package
+							.h1.mt-3( style='line-height: 1' ) $2.69
+							div per month
+							.fw-medium.mt-2 63% Off (Regular: $7.28)
+							.offset-xl
+								a.btn.btn-round.btn-secondary.btn-nuka( href='#' ) Order Today!
+									span.btn-overlay
+
+			.popup-swipe

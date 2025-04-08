@@ -1,0 +1,48 @@
+include  ../layout/_layout
+
+section#other-popup-set.section.section-lg.bg-transparent.text-center
+	.container
+		h3 Other popup sets
+		.row.row-offset-md.row-30.row-xl-50
+			if( pageName !== 'Corporate popup set' )
+				.col-xs-6.col-md-4( data-animate!={ class: 'fadeInUp' } )
+					+layout({
+						img:   'popup-sets/popup-set-01-390x318',
+						title: 'Corporate',
+						link:  'corporate-popup-set.html'
+					}).block.block-center.block-md
+			if( pageName !== 'Product popup set' )
+				.col-xs-6.col-md-4( data-animate!={ class: 'fadeInUp' } )
+					+layout({
+						img:   'popup-sets/popup-set-02-390x318',
+						title: 'Product',
+						link:  'product-popup-set.html'
+					}).block.block-center.block-md
+			if( pageName !== 'Course popup set' )
+				.col-xs-6.col-md-4( data-animate!={ class: 'fadeInUp' } )
+					+layout({
+						img:   'popup-sets/popup-set-03-390x318',
+						title: 'Course',
+						link:  '../lintense-course/course-popup-set.html'
+					}).block.block-center.block-md
+			if( pageName !== 'Clinic popup set' )
+				.col-xs-6.col-md-4( data-animate!={ class: 'fadeInUp' } )
+					+layout({
+						img:   'popup-sets/popup-set-04-390x318',
+						title: 'Clinic',
+						link:  '../lintense-clinic/clinic-popup-set.html'
+					}).block.block-center.block-md
+			if( pageName !== 'Delivery popup set' )
+				.col-xs-6.col-md-4( data-animate!={ class: 'fadeInUp' } )
+					+layout({
+						img:   'popup-sets/popup-set-05-390x318',
+						title: 'Delivery',
+						link:  '../lintense-delivery/delivery-popup-set.html'
+					}).block.block-center.block-md
+			if( pageName !== 'Real estate popup set' )
+				.col-xs-6.col-md-4( data-animate!={ class: 'fadeInUp' } )
+					+layout({
+						img:   'popup-sets/popup-set-06-390x318',
+						title: 'Real Estate',
+						link:  '../lintense-real-estate/real-estate-popup-set.html'
+					}).block.block-center.block-md

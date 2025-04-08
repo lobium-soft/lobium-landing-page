@@ -1,0 +1,15 @@
+include ../material-parallax/_material-parallax
+
+// CTA
++parallax({
+	img: 'images/image-35-1920x1400.jpg'
+}).context-dark.text-center.section-lg
+	.container
+		.row.justify-content-center
+			.col-lg-10.col-xl-8( data-animate!={ class: 'fadeInUp' } )
+				h1 Transform your home with our custom furniture
+				p.lead Discover our handcrafted sofas and chairs and find the perfect finishing touches with our collections of footstools, cushions, and rugs. We are sure you’ll love our furniture.
+				button.btn.btn-round.btn-secondary.btn-nuka( data-modal-trigger!={ target: '#modal' } ) Contact Us
+					span.btn-overlay
+
+include ../modal/_modal

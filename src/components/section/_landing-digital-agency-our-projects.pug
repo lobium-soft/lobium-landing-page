@@ -1,0 +1,110 @@
+include ../wave/_wave
+include ../thumbnail/_thumbnail
+
+// Our Recent Projects
+section.section.section-lg.bg-transparent.text-center.position-relative
+	+wave-light( style='top: 25%' )
+	.container
+		h2( data-animate!={ class: 'fadeInUp' } ) Our recent projects
+	// Owl Carousel
+	.owl-carousel.mt-5(
+		data-owl={
+			margin: 20,
+			stagePadding: 46,
+			slideTransition: 'linear',
+			autoplayTimeout: 4000,
+			autoplaySpeed: 4000,
+			responsive: {
+				480: {
+					items: 2
+				},
+				576: {
+					items: 3
+				},
+				992: {
+					items: 4
+				}
+			}
+		}, data-lightgallery
+	)
+		+thumbnail({
+			imgOriginal: 'image-02-1141x800',
+			img:         'image-02-442x310'
+		})
+		+thumbnail({
+			imgOriginal: 'image-03-1141x800',
+			img:         'image-03-442x310'
+		})
+		+thumbnail({
+			imgOriginal: 'image-04-1141x800',
+			img:         'image-04-442x310'
+		})
+		+thumbnail({
+			imgOriginal: 'image-05-1141x800',
+			img:         'image-05-442x310'
+		})
+		+thumbnail({
+			imgOriginal: 'image-06-1141x800',
+			img:         'image-06-442x310'
+		})
+		+thumbnail({
+			imgOriginal: 'image-07-1141x800',
+			img:         'image-07-442x310'
+		})
+		+thumbnail({
+			imgOriginal: 'image-08-1141x800',
+			img:         'image-08-442x310'
+		})
+		+thumbnail({
+			imgOriginal: 'image-09-1141x800',
+			img:         'image-09-442x310'
+		})
+	// Owl Carousel
+	.owl-carousel( style='margin-top: 20px',
+		data-owl={
+			margin: 20,
+			stagePadding: 46,
+			slideTransition: 'linear',
+			autoplayTimeout: 4500,
+			autoplaySpeed: 4500,
+			responsive: {
+				480: {
+					items: 2
+				},
+				576: {
+					items: 3
+				},
+				992: {
+					items: 4
+				}
+			}
+		}, data-lightgallery
+	)
+		+thumbnail({
+			imgOriginal: 'image-10-1141x800',
+			img:         'image-10-442x310'
+		})
+		+thumbnail({
+			imgOriginal: 'image-11-1141x800',
+			img:         'image-11-442x310'
+		})
+		+thumbnail({
+			imgOriginal: 'image-12-1141x800',
+			img:         'image-12-442x310'
+		})
+		+thumbnail({
+			imgOriginal: 'image-13-1141x800',
+			img:         'image-13-442x310'
+		})
+		+thumbnail({
+			imgOriginal: 'image-14-1141x800',
+			img:         'image-14-442x310'
+		})
+		+thumbnail({
+			imgOriginal: 'image-15-1141x800',
+			img:         'image-15-442x310'
+		})
+		+thumbnail({
+			imgOriginal: 'image-16-1141x800',
+			img:         'image-16-442x310'
+		})

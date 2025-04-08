@@ -1,0 +1,12 @@
+include ../wave/_wave
+include ../logo/_logo
+include ../rights/_rights
+include ../list/_list
+
+// Footer
+footer.section.footer.bg-transparent.text-center.position-relative
+	+wave-light( style='top: 85%' )
+	.container( data-animate!={ class: 'fadeInUp' } )
+		+logo
+		+rights
+		+list-social.text-500

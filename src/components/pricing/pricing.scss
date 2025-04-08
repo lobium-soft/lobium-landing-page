@@ -1,0 +1,131 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../base/mixins";
+@import "../bootstrap/scss/mixins";
+
+
+// Base
+.pricing {
+	background-color: $white;
+	box-shadow: $box-shadow;
+}
+
+.pricing-head {
+	padding: px-to-rem( 30px, 20px, 20px );
+}
+
+.pricing-badge {
+	color: $white;
+	background: #E926B2;
+}
+
+.pricing-price {
+	color: $primary;
+}
+
+.pricing-body {
+	padding: px-to-rem( 0, 20px, 30px );
+}
+
+.pricing-month {
+	position: absolute;
+	transition: $transition-base;
+}
+
+.pricing-year {
+	visibility: hidden;
+	opacity: 0;
+	transition: $transition-base;
+}
+
+.pricing-group.active {
+	.pricing-month {
+		visibility: hidden;
+		opacity: 0;
+	}
+
+	.pricing-year {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+
+// Spacing
+* + .pricing-price {
+	margin-top: px-to-rem( 10px );
+}
+
+* + .pricing-title {
+	margin-top: px-to-rem( 10px );
+}
+
+* + .pricing-btn {
+	margin-top: px-to-rem( 20px );
+}
+
+* + .pricing-switch {
+	margin-top: px-to-rem( 30px );
+}
+
+
+// Modifying
+.pricing-center {
+	.pricing-head {
+		padding-bottom: px-to-rem( 20px );
+	}
+
+	.pricing-body {
+		padding-top: px-to-rem( 20px );
+	}
+}
+
+
+// Media
+@include media-breakpoint-down(xs) {
+	.pricing {
+		max-width: 240px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	.pricing {
+		box-shadow: $box-shadow-sm;
+	}
+
+	.pricing-head {
+		padding: px-to-rem( 50px, 50px, 20px );
+	}
+
+	.pricing-body {
+		padding: px-to-rem( 0, 50px, 50px );
+	}
+
+	.pricing-center {
+		.pricing-head {
+			padding-bottom: px-to-rem( 30px );
+		}
+
+		.pricing-body {
+			padding-top: px-to-rem( 30px );
+		}
+	}
+
+	* + .pricing-title {
+		margin-top: px-to-rem( 20px );
+	}
+
+	* + .pricing-btn {
+		margin-top: px-to-rem( 30px );
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	* + .pricing-switch {
+		margin-top: px-to-rem( 40px );
+	}
+}

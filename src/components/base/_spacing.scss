@@ -1,0 +1,165 @@
+// Elements spacing
+* + p {
+	margin-top: px-to-rem( 10px );
+}
+
+* + h1,
+* + h2,
+* + h3,
+* + h4,
+* + h5,
+* + h6 {
+	margin-top: px-to-rem( 10px );
+}
+
+* + img,
+* + figure {
+	margin-top: px-to-rem( 30px );
+}
+
+* + form {
+	margin-top: px-to-rem( 20px );
+}
+
+* + address {
+	margin-top: px-to-rem( 15px );
+}
+
+h2 + h1 {
+	margin-top: px-to-rem( 5px );
+}
+
+h1 + p,
+h2 + p,
+h4 + p {
+	margin-top: px-to-rem( 10px )
+}
+
+* + .offset-xxs {
+	margin-top: px-to-rem( 20px );
+}
+
+* + .offset-xs {
+	margin-top: px-to-rem( 30px );
+}
+
+* + .offset-sm,
+* + .offset-md,
+* + .offset-lg,
+* + .offset-xl {
+	margin-top: px-to-rem( 40px );
+}
+
+.brand + h2 {
+	margin-top: px-to-rem( 20px );
+}
+
+.logo-novi + h3 {
+	margin-top: px-to-rem( 20px );
+}
+
+
+// Media
+@include media-breakpoint-up(md) {
+	* + p {
+		margin-top: px-to-rem( 20px );
+	}
+
+	* + h1,
+	* + h2,
+	* + h3,
+	* + h4,
+	* + h5,
+	* + h6 {
+		margin-top: px-to-rem( 20px );
+	}
+
+	* + form {
+		margin-top: px-to-rem( 30px );
+	}
+
+	h1 + p,
+	h2 + p,
+	h4 + p {
+		margin-top: px-to-rem( 20px )
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	* + .offset-md,
+	* + .offset-lg {
+		margin-top: px-to-rem( 50px );
+	}
+
+	* + .offset-xl {
+		margin-top: px-to-rem( 60px );
+	}
+}
+
+@include media-breakpoint-up( xxl ) {
+	* + h1,
+	* + h2 {
+		margin-top: px-to-rem( 30px );
+	}
+
+	* + .offset-lg {
+		margin-top: px-to-rem( 60px );
+	}
+
+	* + .offset-xl {
+		margin-top: px-to-rem( 70px );
+	}
+
+	.brand + h2 {
+		margin-top: px-to-rem( 40px );
+	}
+
+	.logo-novi + h3 {
+		margin-top: px-to-rem( 40px );
+	}
+}
+
+
+// Group spacing
+html {
+	.group-5 {
+		@include group( px-to-rem( 5px ) );
+	}
+
+	.group-10 {
+		@include group( px-to-rem( 10px ) );
+	}
+
+	.group-y-10 {
+		@include groupY( px-to-rem( 10px ) );
+	}
+
+	.group-15 {
+		@include group( px-to-rem( 15px ) );
+	}
+
+	.group-20 {
+		@include group( px-to-rem( 20px ) );
+	}
+
+	.group-30 {
+		@include group( px-to-rem( 30px ) );
+	}
+
+	.group-x-30 {
+		@include groupX( px-to-rem( 30px ) );
+	}
+
+	.group-40 {
+		@include group( px-to-rem( 40px ) );
+	}
+}
+
+
+// Offset
+// Media
+@include media-breakpoint-up(lg) {
+	.offset-negative-1 {
+		margin-left: -32%;
+	}
+}

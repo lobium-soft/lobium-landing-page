@@ -1,0 +1,13 @@
+.btn-store {
+  padding: px-to-rem(4px, 20px);
+}
+
+.btn-store-text-small {
+  display: block;
+  font-size: px-to-rem(12px);
+}
+
+.btn-store-text {
+  display: block;
+  text-transform: uppercase;
+}

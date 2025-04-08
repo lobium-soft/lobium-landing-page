@@ -1,0 +1,15 @@
+//- List social
+mixin list-social( data )
+	- data = data || {}
+	// List social
+	ul.list.list-social&attributes( attributes )
+		li.list-social-item
+			a.icon.icon-social.fa-youtube-play( class= data.iconClass ? data.iconClass : 'icon-sm', href='#' )
+		li.list-social-item
+			a.icon.icon-social.fa-facebook-f( class= data.iconClass ? data.iconClass : 'icon-sm', href='#' )
+		li.list-social-item
+			a.icon.icon-social.fa-instagram( class= data.iconClass ? data.iconClass : 'icon-sm', href='#' )
+		li.list-social-item
+			a.icon.icon-social.fa-twitter( class= data.iconClass ? data.iconClass : 'icon-sm', href='#' )
+		li.list-social-item
+			a.icon.icon-social.fa-linkedin( class= data.iconClass ? data.iconClass : 'icon-sm', href='#' )

@@ -1,0 +1,26 @@
+//- Layout
+	@param {object} data - data object
+	@param {string} data.title - layout title
+	@param {string} data.link - layout link
+	@param {string} data.img - layout img
+mixin layout( data )
+	// Layout
+	article.layout&attributes( attributes )
+		a.layout-figure( href= data.link )
+			+img( data.img )
+		.layout-title.h6
+			a( href= data.link )= data.title
+
+
+//- Layout popup
+	@param {object} data - data object
+	@param {string} data.title - layout title
+	@param {string} data.link - layout link
+	@param {string} data.img - layout img
+mixin layout-popup( data )
+	// Layout
+	article.layout&attributes( attributes )
+		.layout-figure( data-modal-trigger!={ target: '#' + data.id } )
+			+img( data.img )
+		.layout-title.h6
+			span.layout-target( data-modal-trigger!={ target: '#' + data.id } )= data.title

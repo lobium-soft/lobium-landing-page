@@ -1,0 +1,13 @@
+//- Post
+	@param {object} obj - post obj object
+	@param {object} data.img - post img
+	@param {object} data.title - post title
+	@param {object} data.text - post text
+mixin post( data )
+	// Post
+	article.post&attributes( attributes )
+		a.post-figure( href='#' )
+			+img( data.img ).post-img
+		.post-title.h4
+			a.post-link( href='#' )= data.title
+		.post-text= data.text

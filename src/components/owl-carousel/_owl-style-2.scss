@@ -1,0 +1,35 @@
+// Base
+.owl-style-2 {
+	.owl-stage-outer {
+		padding: 25px 15px;
+		margin: -25px -15px;
+	}
+
+	.owl-stage {
+		display: flex;
+		align-items: center;
+	}
+
+	.owl-item {
+		&:nth-child(2) {
+			z-index: 1;
+		}
+
+		&:not(.active) {
+			.pricing-corporate {
+				box-shadow: none;
+			}
+		}
+	}
+}
+
+
+// Media
+@include media-breakpoint-up(lg) {
+	.owl-style-2 {
+		.owl-stage-outer {
+			padding: 40px 40px 50px;
+			margin: -40px -40px -50px;
+		}
+	}
+}

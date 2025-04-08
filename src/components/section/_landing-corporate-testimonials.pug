@@ -1,0 +1,56 @@
+include ../counter/_counter
+include ../quote/_quote
+
+// Testimonials
+section.section.section-lg.bg-transparent#testimonials
+	.container
+		.row.row-30.row-lg-40.justify-content-center
+			.col-sm-10.col-md-7.col-xl-5.text-center( data-animate!={ class: 'fadeInUp' } )
+				+counter-default({
+					classMain: 'h1 h1-mod text-primary',
+					value:     2000,
+					postfix:   '+'
+				})
+				h2 Positive reviews by our satisfied clients
+			.col-xl-10
+				// Owl Carousel
+				.owl-carousel.owl-style-3(
+					data-owl={
+						margin: 40,
+						nav: true,
+						dots: true,
+						responsive: {
+							768: {
+								items: 2
+							},
+							1600: {
+								items: 2,
+								margin: 50
+							}
+						}
+					}
+				)
+					+quote-boxed({
+						text:     'Lintense is a highly skilled and uniquely capable firm with multitudes of talented web designers on board.',
+						img:      'persons/person-02-60x60',
+						name:     'Roy Sanders',
+						position: 'Regular Client'
+					})
+					+quote-boxed({
+						text:     'We partnered with Lintense to design our website. We found them incredibly helpful during our cooperation.',
+						img:      'persons/person-03-60x60',
+						name:     'Anna Robinson',
+						position: 'Regular Client'
+					})
+					+quote-boxed({
+						text:     'This team is quick to respond, informative and deliver what is asked for. Would highly recommend. Thanks!',
+						img:      'persons/person-04-60x60',
+						name:     'Craig Edwards',
+						position: 'Regular Client'
+					})
+					+quote-boxed({
+						text:     'This team provided the most prompt quote, communicated well during the project, and delivered a great result.',
+						img:      'persons/person-05-60x60',
+						name:     'Judith Bell',
+						position: 'Regular Client'
+					})

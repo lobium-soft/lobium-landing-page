@@ -1,0 +1,150 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../base/mixins";
+@import "../bootstrap/scss/mixins";
+
+
+// Base
+.video {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	.video-btn {
+		position: absolute;
+		margin-top: 0;
+	}
+
+	* + * {
+		margin-top: 0;
+	}
+}
+
+.video-image {
+	width: 100%;
+	box-shadow: $box-shadow-lg;
+}
+
+.video-local {
+	object-fit: cover;
+}
+
+.video-btn {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: px-to-rem( 70px );
+	height: px-to-rem( 70px );
+	font-size: px-to-rem( 21px );
+	border: 0;
+	border-radius: 50%;
+	color: $white;
+	cursor: pointer;
+	transition: $transition-base;
+
+	&::before {
+		display: block;
+		position: absolute;
+		content: '';
+		top: -11.5%;
+		left: -11.5%;
+		right: -11.5%;
+		bottom: -11.5%;
+		border-radius: 50%;
+		background-color: rgba($gray-700, 0.3);
+		pointer-events: none;
+	}
+
+	&::after {
+		position: absolute;
+		content: '';
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		border-radius: 50%;
+		background: rgba($gray-700, 0.6);
+		transition: $transition-base;
+	}
+
+	&:hover {
+		color: $primary;
+
+		&::before {
+			background-color: $gray-700;
+			animation: video-btn 1s ease infinite;
+		}
+
+		&::after {
+			background: $gray-700;
+		}
+	}
+
+	&.pause {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+.video-btn-svg {
+	position: relative;
+	left: 0.143em;
+	width: auto;
+	height: 1em;
+	fill: currentColor;
+	z-index: 1;
+}
+
+
+// Spacing
+* + .video {
+	margin-top: px-to-rem( 30px );
+}
+
+* + .video-btn {
+	margin-top: px-to-rem( 30px );
+}
+
+
+// Modifying
+.video-btn-secondary {
+	&::after {
+		background: $secondary;
+	}
+}
+
+
+// Media
+@include media-breakpoint-up(xl) {
+	* + .video {
+		margin-top: px-to-rem( 50px );
+	}
+
+	* + .video-btn {
+		margin-top: px-to-rem( 50px );
+	}
+}
+
+
+// Animation
+@keyframes video-btn {
+	from {
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		opacity: 1;
+	}
+
+	to {
+		top: -28.6%;
+		left: -28.6%;
+		right: -28.6%;
+		bottom: -28.6%;
+		opacity: 0;
+	}
+}

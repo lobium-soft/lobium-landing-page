@@ -1,0 +1,19 @@
+[data-animate] {
+	visibility: hidden;
+}
+
+.animated {
+	animation-duration: 1s;
+	animation-fill-mode: both;
+	visibility: visible;
+}
+
+html:not(.lt-ie10) .not-animated { opacity: 0; }
+
+@media print, ( prefers-reduced-motion: reduce ) {
+	.animated {
+		animation-duration: 1ms !important;
+		transition-duration: 1ms !important;
+		animation-iteration-count: 1 !important;
+	}
+}

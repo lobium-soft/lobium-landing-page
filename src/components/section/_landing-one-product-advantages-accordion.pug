@@ -1,0 +1,25 @@
+include ../card/_card
+
+// Advantages
+section.section.section-lg.bg-transparent
+	.container
+		.row.row-30.justify-content-center
+			.col-xs-9.col-sm-8.col-md-6( data-animate!={ class: 'fadeInUp' } )
+				+img( 'products/product-05-610x508.png' )
+			.col-xs-9.col-sm-8.col-md-6( data-animate!={ class: 'fadeInUp' } )
+				.block.block-center.block-md
+					h2 Easily connect your headphones
+					p.lead With an exclusive Lintense app for iOS and Android, you can automatically connect the headphones to your favorite devices.
+					//Bootstrap collapse
+					#accordion1.card-group-custom.card-group-corporate.accordion( role='tablist' aria-multiselectable='false' )
+						+card({
+							parentId: 'accordion1',
+							title:    'Pair your Lintense headphones'
+						}).card-corporate
+							p Lintense headphones can remember up to 3 favorite devices and easily pair with them. To change an active device, just press a square button on your headphones.
+						+card({
+							show:     true,
+							parentId: 'accordion1',
+							title:    'Disconnect or reconnect'
+						}).card-corporate
+							p Need to disconnect & connect Lintense headphones to another device? No problem! Just press an “L” button on the headphones. It will reset the previous connection.

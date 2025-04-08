@@ -1,0 +1,24 @@
+include  ../counter/_counter
+
+// Counters
+section.section.section-lg.bg-transparent.text-center
+	.container
+		.row.row-30.justify-content-center
+			.col-auto.col-xs-4
+				+counter-default({
+					title:     'Users',
+					value:     '1789',
+					classMain: 'h1 text-primary'
+				}).d-md-inline-flex.flex-wrap.flex-row-reverse.align-items-baseline
+			.col-auto.col-xs-4
+				+counter-default({
+					title:     'Downloads',
+					value:     '786',
+					classMain: 'h1 text-primary-2'
+				}).d-md-inline-flex.flex-wrap.flex-row-reverse.align-items-baseline
+			.col-auto.col-xs-4
+				+counter-default({
+					title:     'Likes',
+					value:     '247',
+					classMain: 'h1 text-secondary'
+				}).d-md-inline-flex.flex-wrap.flex-row-reverse.align-items-baseline

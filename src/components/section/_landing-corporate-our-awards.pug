@@ -1,0 +1,26 @@
+include ../blurb/_blurb
+
+// Our Awards
+section#awards.section.section-lg.bg-transparent
+	.container
+		.row.row-30.align-items-center
+			.col-md-9.col-lg-5( data-animate!={ class: 'fadeInUp' } )
+				h6 Our Awards
+				h2 #1 provider of stunning websites
+				p.lead Since our establishment, we have received numerous awards that show how we changed the digital industry.
+			.col-lg-7
+				.row.row-40.gutters-20
+					.col-sm-6( data-animate!={ class: 'fadeInUp' } )
+						+blurb-modern({
+							title:     'Website of the year: cute fashion',
+							text:      'One of our recent projects, an online fashion magazine, has been awarded for a unique design approach.',
+							year:      '2019',
+							classYear: 'text-primary'
+						})
+					.col-sm-6( data-animate!={ class: 'fadeInUp' } )
+						+blurb-modern({
+							title:     'Best responsive web design: istep co.',
+							text:      'We achieved new levels of web responsiveness in this project, for which we were awarded in 2017.',
+							year:      '2017',
+							classYear: 'text-secondary'
+						})

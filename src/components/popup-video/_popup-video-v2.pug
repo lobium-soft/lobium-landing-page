@@ -1,0 +1,17 @@
+// Popup video
+#popup-video.popup.text-center.modal.modal-700.fade( tabindex='-1', role='dialog' )
+	.modal-dialog.modal-lg( role='document' )
+		.modal-content.context-dark.slideInDown
+			button.close( type='button', data-dismiss='modal', aria-label='Close' )
+				span( aria-hidden='true' ) ×
+			.modal-body
+				h3.text-primary-orange Video Presentation
+				p.mt-2 Want to learn more about what we do?
+					| #[br.d-none.d-xs-block]
+					| Watch this video we have prepared for you.
+				.offset-xs
+					article.video.embed-responsive.embed-responsive-16by9
+						video.video-local( src='videos/video-2.mp4', controls, poster='videos/video-2.jpg', data-btn='.video-btn-1' )
+						button.video-btn.video-btn-1.play
+							svg.video-btn-svg( width='19', height='21', viewbox='0 0 19 21' )
+								path( d='M18.0698 8.92762C19.3101 9.63455 19.3101 11.3655 18.0698 12.0724L2.85678 20.7432C1.59455 21.4626 -6.40869e-08 20.585 0 19.1708L7.85887e-07 1.82916C8.49974e-07 0.414998 1.59455 -0.462644 2.85678 0.256784L18.0698 8.92762Z' )

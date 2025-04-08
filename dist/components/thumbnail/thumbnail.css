@@ -1,0 +1,63 @@
+.thumbnail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumbnail-image {
+  width: 100%;
+}
+
+.thumbnail-icon {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.375rem;
+  height: 4.375rem;
+  font-size: 3.125rem;
+  line-height: 1;
+  border-radius: 50%;
+  color: #FFF;
+  font-weight: 400;
+  font-family: "Merriweather", serif;
+  transition: 0.3s ease;
+  z-index: 1;
+}
+.thumbnail-icon::before, .thumbnail-icon::after {
+  position: absolute;
+  content: "";
+  transition: inherit;
+  border-radius: inherit;
+  z-index: -1;
+}
+.thumbnail-icon::before {
+  top: -0.5rem;
+  right: -0.5rem;
+  bottom: -0.5rem;
+  left: -0.5rem;
+  border: 0.5rem solid rgba(41, 48, 67, 0.3);
+}
+.thumbnail-icon::after {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(41, 48, 67, 0.6);
+}
+
+.desktop .thumbnail-icon {
+  opacity: 0;
+}
+.desktop .thumbnail-icon::before {
+  transform: scale(1.3);
+}
+.desktop .thumbnail-icon::after {
+  transform: scale(0.7);
+}
+.desktop .thumbnail:hover .thumbnail-icon {
+  opacity: 1;
+}
+.desktop .thumbnail:hover .thumbnail-icon::before, .desktop .thumbnail:hover .thumbnail-icon::after {
+  transform: none;
+}

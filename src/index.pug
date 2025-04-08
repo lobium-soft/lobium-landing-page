@@ -1,0 +1,39 @@
+extends components/base/_skeleton
+include components/wave/_wave
+
+block variables
+	- 
+		pageName = 'Lobium',
+		logo.default = 'logo-default-web-332x106.png',
+		logo.inverse = 'logo-inverse-web-332x106.png';
+		
+block page
+	include components/rd-navbar/_rd-navbar-corporate
+	include components/section/_landing-corporate-intro
+
+	.position-relative
+		+wave-light
+		include components/section/_landing-corporate-why-choose-us
+		include components/section/_landing-corporate-our-mission
+		include components/section/_landing-corporate-what-we-offer
+
+	include components/section/_landing-corporate-our-projects
+
+	.position-relative.overflow-hidden
+		+wave-light( style='top: 80%' )
+		include components/section/_landing-corporate-our-awards
+		include components/section/_landing-corporate-advantages
+		include components/section/_landing-corporate-advantages-2
+
+	include components/section/_landing-corporate-cta
+	include components/section/_landing-corporate-web-design-features
+	include components/section/_landing-corporate-technologies
+	include components/section/_landing-corporate-counters
+
+	.position-relative
+		+wave-light( style='top: 65%' )
+		include components/section/_landing-corporate-tips-from-our-team
+		include components/section/_landing-corporate-testimonials
+
+	include components/section/_landing-corporate-faqs
+	include components/footer/_footer-corporate

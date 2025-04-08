@@ -1,0 +1,25 @@
+// Shadows
+.filter-shadow-sm {
+	filter: drop-shadow( $box-shadow-sm );
+}
+
+.filter-shadow {
+	filter: drop-shadow( $box-shadow );
+}
+
+.filter-shadow-lg,
+.filter-shadow-xl {
+	filter: drop-shadow( $box-shadow );
+}
+
+
+// Media
+@include media-breakpoint-up(xl) {
+	.filter-shadow-lg {
+		filter: drop-shadow( $box-shadow-lg );
+	}
+
+	.filter-shadow-xl {
+		filter: drop-shadow( 30px 54px 54px rgba($gray-700, 0.1) );
+	}
+}

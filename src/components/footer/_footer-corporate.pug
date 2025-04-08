@@ -1,0 +1,45 @@
+include ../list/_list
+include ../rights/_rights
+
+// Footer
+footer.section.footer.bg-800.context-dark.text-500.text-center.position-relative.pb-5
+	+wave-dark
+	.container
+		div( data-animate!={ class: 'fadeInUp' } )
+			h6 We’re Ready to Work for You
+			h1 Let’s design your new website
+			p.lead Do you want to have a website that stands out and impresses your clients? Then we are ready
+				| #[br.d-none.d-lg-block]
+				| to help! Click the button below to contact us and discuss your ideas.
+			a.btn.btn-round.btn-secondary.btn-nuka( href='#' ) Get a Quote
+				span.btn-overlay
+		hr.divider.divider-sm.footer-divider
+		.footer-panel
+			.group-x-30.group-y-10.d-flex.flex-wrap.align-items-center.justify-content-center.justify-content-xxl-between
+				div
+					ul.list.footer-list
+						li.list-item
+							a.list-link( href='#' ) About
+						li.list-item
+							a.list-link( href='#' ) Our Services
+						li.list-item
+							a.list-link( href='#' ) How We Work
+						li.list-item
+							a.list-link( href='#' ) Experience
+						li.list-item
+							a.list-link( href='#' ) Why Choose Us
+						li.list-item
+							a.list-link( href='#' ) Partners
+						li.list-item
+							a.list-link( href='#' ) Support
+						li.list-item
+							a.list-link( href='#' ) Testimonials
+						li.list-item
+							a.list-link( href='#' ) Pricing
+						li.list-item
+							a.list-link( href='#' ) FAQ
+						li.list-item
+							a.list-link( href='#' ) Contacts
+				div
+					+list-social
+			+rights.text-xxl-start.mt-2

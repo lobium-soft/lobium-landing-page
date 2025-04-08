@@ -1,0 +1,67 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../base/mixins";
+@import "../bootstrap/scss/mixins";
+
+
+// Base
+.post {
+
+}
+
+.post-figure {
+	display: block;
+}
+
+.post-img {
+	width: 100%;
+}
+
+.post-title .post-link {
+	&:hover {
+		color: $headings-color;
+		border-bottom: 2px solid rgba( $secondary, .4 );
+	}
+}
+
+
+// Spacing
+* + .post-title {
+	margin-top: px-to-rem( 20px );
+}
+
+* + .post-text {
+	margin-top: px-to-rem( 10px );
+}
+
+
+// Contexts
+.desktop {
+	.post-figure {
+		overflow: hidden;
+	}
+
+	.post-img {
+		transition: $transition-base;
+	}
+
+	.post:hover {
+		.post-img {
+			transform: scale( 1.05 );
+		}
+	}
+}
+
+
+// Media
+@include media-breakpoint-up(xxl) {
+	* + .post-title {
+		margin-top: px-to-rem( 30px );
+	}
+
+	* + .post-text {
+		margin-top: px-to-rem( 20px );
+	}
+}

@@ -1,0 +1,13 @@
+include ../wave/_wave
+
+// Intro
+section.section.bg-gradient-blue-aqua.context-dark.position-relative.pb-1.pb-sm-5.pb-md-1( style='padding-top: 15%' )
+	+wave
+	.container.position-relative
+		.row.row-30.justify-content-center
+			.col-xs-8.col-sm-6.col-md-5.mt-3( data-animate!={ class: 'fadeInUp' } )
+				h2 Your reliable partner in digital marketing & PR
+				a.btn.btn-round.btn-primary.btn-nuka( href='#' ) Get a Quote
+					span.btn-overlay
+			.col-xs-8.col-sm-6.col-md-7( data-animate!={ class: 'fadeInUp' } )
+				+img( 'blurs/blur-04-745x488.png' )

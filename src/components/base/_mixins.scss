@@ -1,0 +1,119 @@
+// Element-groups
+@mixin group( $offset-x, $offset-y: $offset-x ) {
+	margin-bottom: -$offset-y;
+	margin-left: -$offset-x;
+
+	&:empty {
+		margin-bottom: 0;
+		margin-left: 0;
+	}
+
+	> * {
+		margin-top: 0;
+		margin-bottom: $offset-y;
+		margin-left: $offset-x;
+	}
+}
+
+@mixin group-media( $offset-x, $offset-y: $offset-x ) {
+	margin-bottom: -$offset-y;
+	margin-left: -$offset-x;
+
+	> * {
+		margin-bottom: $offset-y;
+		margin-left: $offset-x;
+	}
+}
+
+@mixin groupX( $offset-x ) {
+	margin-left: -$offset-x;
+
+	> * {
+		margin-left: $offset-x;
+	}
+}
+
+@mixin groupY( $offset-y ) {
+	margin-bottom: -$offset-y;
+
+	> * {
+		margin-bottom: $offset-y;
+	}
+}
+
+
+// Link universal mixin
+@mixin link($default-clr, $hover-color) {
+	&,
+	&:active,
+	&:focus {
+		color: $default-clr;
+	}
+
+	&:hover {
+		color: $hover-color;
+	}
+}
+
+// Custom button variants
+@mixin btn-variant($clr, $bg, $bd, $clr-hover, $bg-hover, $bd-hover) {
+	&,
+	&:focus {
+		color: $clr;
+		background-color: $bg;
+		border-color: $bd;
+	}
+
+	&:hover,
+	&:active,
+	&.active {
+		color: $clr-hover;
+		background-color: $bg-hover;
+		border-color: $bd-hover;
+	}
+
+	&.button-ujarak {
+		&::before {
+			background: $bg-hover;
+		}
+	}
+
+	&.button-nuka {
+
+		&:hover,
+		&:active,
+		&.active {
+			color: $clr-hover;
+			background-color: $bg-hover;
+			border-color: $bd-hover;
+		}
+
+		.button-overlay {
+			background-color: $bg-hover;
+		}
+	}
+}
+
+// Reset Button
+@mixin reset-button() {
+	background: none;
+	border: none;
+	display: inline-block;
+	padding: 0;
+	outline: none;
+	outline-offset: 0;
+	cursor: pointer;
+	-webkit-appearance: none;
+
+	&::-moz-focus-inner {
+		border: none;
+		padding: 0;
+	}
+}
+
+// Disable padding - top on two similar backgrounds
+@mixin bg-behaviour($bg-color) {
+	background-color: $bg-color;
+
+	&:not([style*="background-"]) + &:not([style*="background-"]) { padding-top: 0; }
+}

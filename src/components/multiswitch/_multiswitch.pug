@@ -1,0 +1,9 @@
+//- Multi switch
+	@param {object} data - data object
+mixin multiswitch( data )
+	// Multi switch
+	.group-15.d-inline-flex.align-items-center.justify-content-center&attributes( attributes )
+		span.fw-bold= data.textLeft
+		button.switch-boxed( data-multi-switch= data.targets )
+			span.switch-boxed-slider
+		span.fw-bold= data.textRight

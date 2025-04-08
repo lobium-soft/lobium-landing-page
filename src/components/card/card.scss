@@ -1,0 +1,84 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../base/mixins";
+@import "../bootstrap/scss/mixins";
+
+
+// Local variables
+$accordion-corporate-color: $gray-700;
+$accordion-corporate-background: $white;
+$accordion-corporate-border: #dedede;
+$accordion-corporate-content-color: $body-color;
+$accordion-corporate-arrow-color: $white;
+$accordion-corporate-arrow-background: $primary;
+$accordion-corporate-shadow: $box-shadow;
+$accordion-corporate-border-radius: px-to-rem( 25px );
+$accordion-corporate-header-padding: px-to-rem( 11px, 60px, 11px, 30px );
+$accordion-corporate-content-padding: px-to-rem( 8px, 30px, 30px ) nth($accordion-corporate-header-padding, 4);
+
+// Panel groups
+.card-group-custom {
+	margin-bottom: 0;
+
+	.card-header + .collapse > .card-body,
+	.card-header + .collapse > .list-group { border-top: 0; }
+
+	.card + .card { margin-top: 0; }
+}
+
+.card-group-custom-with-shadow {
+	box-shadow: 4px 20px 14px rgba(26, 28, 36, 0.1);
+}
+
+.card-group-custom.card-group-corporate {
+	.card + .card { margin-top: px-to-rem( 20px ); }
+}
+
+.card-custom {
+	display: block;
+	margin: 0;
+	background: inherit;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+	text-align: left;
+
+	a { display: block; }
+
+	// Panel heading
+	.card-header {
+		padding: 0;
+		border-bottom: 0;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+		background: transparent;
+	}
+
+	// Panel contents
+	.card-body {
+		padding: 0;
+		border: 0;
+	}
+
+	.card-title { margin-bottom: 0; }
+}
+
+
+// Spacing
+* + .card-group-custom {
+	margin-top: px-to-rem( 30px );
+}
+
+
+// Media
+@include media-breakpoint-up(md) {
+	* + .card-group-custom {
+		margin-top: px-to-rem( 40px );
+	}
+}
+
+
+// Layouts
+@import "card-corporate";

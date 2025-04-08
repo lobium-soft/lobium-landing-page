@@ -1,0 +1,33 @@
+// Intro
+section#about.section.section-lg.bg-gradient-orange-gold.overlay-primary-orange.overlay-08.vide( data-vide-bg='videos/video', data-vide-options='posterType:jpg' )
+	.container
+		.row.row-30.align-items-center
+			.col-sm-6.col-lg-7.context-dark( data-animate!={ class: 'fadeInUp' } )
+				h1 Take advantage of SEO to receive more customers & profit
+				p.lead We are a SEO agency with over 10 years of experience.
+					| #[br.d-none.d-lg-block]
+					| Our team helps our customers by providing:
+				ul.list.list-mark-check.lead
+					li.list-item Search Engine Optimization
+					li.list-item Reputation Management
+					li.list-item PPC Management
+				a.btn.btn-round.btn-primary.btn-nuka( href='#' ) Learn More
+					span.btn-overlay
+			.col-sm-6.col-lg-5( data-animate!={ class: 'fadeInUp' } )
+				article.box
+					.box-subtitle.h6 Let’s Cooperate!
+					.box-title.h3 Get a quote
+					.box-text If you’d like to work with one of the world’s leading SEO agencies, fill out the form below, and we’ll contact you.
+					//RD Mailform
+					form.rd-mailform.box-form( data-form-output='form-output-global', data-form-type='contact', method='post', action='components/rd-mailform/rd-mailform.php' )
+						.form-group
+							input.form-control( type='text', name='name', placeholder='Your name *', data-constraints='@Required' )
+						.form-group
+							input.form-control( type='email', name='email', placeholder='Your e-mail address *', data-constraints='@Email @Required' )
+						.form-group
+							textarea.form-control( name='question', placeholder='Your question', rows='5', data-constraints='@Required' )
+						.box-btn
+							button.btn.btn-round.btn-secondary.btn-nuka( type='submit' ) Submit
+								span.btn-overlay
+
+			#form-output-global.form-output.snackbar.snackbar-secondary

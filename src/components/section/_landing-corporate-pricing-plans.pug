@@ -1,0 +1,60 @@
+include ../pricing/_pricing
+
+// Pricing
+section#pricing.section.section-lg.text-center.position-relative.pb-0
+	.bg-layer.bg-800.overflow-hidden( style='bottom: 30%' )
+		+wave-dark( style='bottom: -4.4vw' )
+	.container
+		h2.text-white( data-animate!={ class: 'fadeInUp' } ) Pricing plans
+		.row.row-offset-sm.justify-content-center
+			.col-xl-10
+				// Owl Carousel
+				.owl-carousel.owl-style-2(
+					data-owl={
+						loop: false,
+						mouseDrag: false,
+						dots: true,
+						autoplay: false,
+						responsive: {
+							480: {
+								items: 2
+							},
+							768: {
+								items: 3,
+								margin: 0
+							}
+						}
+					}
+				)
+					+pricing({
+						title:    'Free package',
+						price:    '0'
+					})( data-animate!={ class: 'fadeInRight', delay: '.3s' } )
+						ul.list.list-mark-check.lead.text-start
+							li.list-item Web Design
+							li.list-item Web Development
+							li.list-item UI/UX Design
+							li.list-item.disabled Quality Assurance
+							li.list-item.disabled Insights & Analytics
+					+pricing({
+						headClass: 'bg-gradient-blue-aqua context-dark',
+						badge:     'Save 35%',
+						title:     'Standard package',
+						price:     '46'
+					}).pricing-center( data-animate!={ class: 'fadeInUp' } )
+						ul.list.list-mark-check.lead.text-start
+							li.list-item Web Design
+							li.list-item Web Development
+							li.list-item UI/UX Design
+							li.list-item Quality Assurance
+							li.list-item.disabled Insights & Analytics
+					+pricing({
+						title:    '<span class="text-secondary">PRO</span> package',
+						price:    '89'
+					})( data-animate!={ class: 'fadeInLeft', delay: '.3s' } )
+						ul.list.list-mark-check.lead.text-start
+							li.list-item Web Design
+							li.list-item Web Development
+							li.list-item UI/UX Design
+							li.list-item Quality Assurance
+							li.list-item Insights & Analytics

@@ -1,0 +1,36 @@
+include ../blurb/_blurb
+include ../lin-icon/_lin-icon
+
+// What We Offer
+section.section.section-lg.bg-transparent#what-we-do
+	.container
+		.text-center( data-animate!={ class: 'fadeInUp' } )
+			h6 What We Offer
+			h2 Creative services that matter
+			p.lead At Lintense, we aim to deliver the best creative solutions for your business.
+		.row.row-30
+			.col-md-6.col-lg-4( data-animate!={ class: 'fadeInUp' } )
+				+blurb({
+					media:      'media-sm',
+					title:      'Web design & <br class="d-none d-md-block">development',
+					titleClass: 'mt-3',
+					text:       'We focus on not only providing beautiful design, but on layouts that give your clients the information they\'re looking for and make the important first impression.'
+				})
+					+lin-idea.lin-lg.blurb-icon-svg
+			.col-md-6.col-lg-4( data-animate!={ class: 'fadeInUp' } )
+				+blurb({
+					media:      'media-sm',
+					title:      'Logo design & <br class="d-none d-md-block">copywriting',
+					titleClass: 'mt-3',
+					text:       'Our designers know the importance of designing attractive and powerful logos and writing appealing texts that enhance your visibility and recognition.'
+				})
+					+lin-code.lin-lg.blurb-icon-svg
+			.col-md-6.col-lg-4( data-animate!={ class: 'fadeInUp' } )
+				+blurb({
+					media:      'media-sm',
+					title:      'Website support & <br class="d-none d-md-block">consultations',
+					titleClass: 'mt-3',
+					text:       'Beside offering great web services, we also provide reliable website support and consultations for indivdual and corporate clients at highly affordable prices.'
+				})
+					+lin-certificate.lin-lg.blurb-icon-svg
+

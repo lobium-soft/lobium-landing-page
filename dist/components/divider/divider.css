@@ -1,0 +1,38 @@
+hr {
+  background-color: transparent;
+}
+
+hr.divider {
+  height: 0;
+}
+
+.divider {
+  border-top-style: solid;
+  border-color: #E9E9EB;
+  opacity: 1;
+}
+
+* + .divider,
+.divider + * {
+  margin-top: 2.5rem;
+}
+
+.divider-sm {
+  border-top-width: 1px;
+}
+
+.divider-lg {
+  border-top-width: 3px;
+}
+
+.divider-xl {
+  border-top-width: 4px;
+}
+
+.context-dark .divider {
+  border-color: #FFF;
+}
+
+.bg-800 .divider {
+  border-color: rgba(255, 255, 255, 0.15);
+}

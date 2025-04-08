@@ -1,0 +1,37 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../base/mixins";
+@import "../bootstrap/scss/mixins";
+
+
+// Base
+.switch-boxed {
+	display: flex;
+	align-items: center;
+	position: relative;
+	height: px-to-rem( 40px );
+	width: px-to-rem( 75px );
+	border: none;
+	border-radius: px-to-rem( 40px );
+	background: $primary;
+	cursor: pointer;
+
+	&.active {
+		.switch-boxed-slider {
+			left: px-to-rem( 40px );
+		}
+	}
+}
+
+.switch-boxed-slider {
+	display: inline-block;
+	position: absolute;
+	left: px-to-rem( 5px );
+	width: px-to-rem( 30px );
+	height: px-to-rem( 30px );
+	border-radius: 50%;
+	background: $white;
+	transition: $transition-base;
+}

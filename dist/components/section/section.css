@@ -1,0 +1,52 @@
+.desktop .section-one-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section-sm,
+.section-lg {
+  padding: 60px 0;
+}
+
+@media (min-width: 768px) {
+  .section-lg {
+    padding: 80px 0;
+  }
+}
+@media (min-width: 992px) {
+  .section-lg {
+    padding: 100px 0;
+  }
+}
+@media (min-width: 1200px) {
+  .section-lg {
+    padding: 120px 0;
+  }
+  html .section-lg-1 {
+    padding: 10% 0;
+  }
+}
+@media (min-width: 1600px) {
+  .section-lg {
+    padding: 140px 0;
+  }
+  .section-inset-xxl-190 {
+    padding: 190px 0;
+  }
+}
+.section-offset-1 {
+  padding-bottom: 1px;
+  margin-bottom: -5%;
+}
+
+html .section-offset-1 + .section {
+  padding-top: 16%;
+}
+
+@media (min-width: 992px) {
+  html .section-offset-1 + .section {
+    padding-top: 10%;
+  }
+}

@@ -1,0 +1,23 @@
+include ../video/_video
+
+// About us
+section#about.section.swiper-container( style='min-height: 85vh' )
+	.swiper-wrapper
+		.swiper-slide.section-lg.context-dark( style='background-image: url( images/image-37-1920x800.jpg )' )
+			.container
+				.row
+					.col-xs-9.col-sm-8.col-md-7.col-lg-6
+						h1 Take a look at Lintense advanced noise cancelling
+						p.lead.block.block-lg In addition to the premium audio, these headphones are packed with evolved noise cancelling functionality. Watch the video to find out how this technology works.
+						+video-btn.video-btn-secondary
+		.swiper-slide.section-lg.context-dark( style='background-image: url( images/image-41-1920x800.jpg )' )
+			.container
+				.row
+					.col-xs-9.col-sm-8.col-md-7.col-lg-6
+						h1 Your perfect companion in everything
+						p.lead.block.block-lg Our new line of headphones is capable of much more than providing audio for music, videos, and calls. It has the power to help you communicate & stay informed.
+						a.btn.btn-round.btn-primary.btn-nuka( href= buyLink, target='_blank' ) Purchase Now
+							span.btn-overlay
+
+	//Swiper Pagination
+	.swiper-pagination

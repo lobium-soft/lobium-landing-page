@@ -1,0 +1,8 @@
+.owl-style-4 .owl-stage-outer {
+  overflow: visible;
+  padding: 50px;
+  margin: -50px;
+}
+.owl-style-4 .owl-item img {
+  max-width: 75%;
+}

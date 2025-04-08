@@ -1,0 +1,56 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../base/mixins";
+@import "../bootstrap/scss/mixins";
+
+
+// Base
+.media {
+	display: flex;
+	align-items: normal;
+}
+
+.media-body {
+	flex: 1;
+}
+
+// Modifying
+.media-xxs {
+	@include group(10px);
+}
+
+.media-xs {
+	@include group(15px);
+}
+
+.media-sm,
+.media-md,
+.media-lg,
+.media-xl {
+	@include group(20px);
+}
+
+
+// Media
+@include media-breakpoint-up(lg) {
+	.media-md,
+	.media-lg,
+	.media-xl {
+		@include group(30px);
+	} 
+}
+
+@include media-breakpoint-up(xl) {
+	.media-lg,
+	.media-xl {
+		@include group-media(40px, 30px);
+	}
+}
+
+@include media-breakpoint-up(xxl) {
+	.media-xl {
+		@include group-media(50px, 30px);
+	}
+}

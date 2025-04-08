@@ -1,0 +1,25 @@
+.switch-boxed {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 2.5rem;
+  width: 4.6875rem;
+  border: none;
+  border-radius: 2.5rem;
+  background: #01C9F5;
+  cursor: pointer;
+}
+.switch-boxed.active .switch-boxed-slider {
+  left: 2.5rem;
+}
+
+.switch-boxed-slider {
+  display: inline-block;
+  position: absolute;
+  left: 0.3125rem;
+  width: 1.875rem;
+  height: 1.875rem;
+  border-radius: 50%;
+  background: #FFF;
+  transition: all 0.2s ease-in-out;
+}

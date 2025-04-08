@@ -1,0 +1,28 @@
+p.rights {
+  font-size: 14px;
+}
+p.rights a {
+  color: inherit;
+}
+p.rights a:hover {
+  color: #01C9F5;
+}
+
+* + p.rights {
+  margin-top: 1.25rem;
+}
+
+.row + p.rights {
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .row + p.rights {
+    margin-top: 3.75rem;
+  }
+}
+@media (min-width: 1200px) {
+  .row + p.rights {
+    margin-top: 5rem;
+  }
+}

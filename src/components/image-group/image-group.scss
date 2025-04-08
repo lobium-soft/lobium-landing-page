@@ -1,0 +1,52 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../base/mixins";
+@import "../bootstrap/scss/mixins";
+
+
+// Base
+.image-group-1 {
+	position: absolute;
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: flex-end;
+	justify-content: center;
+	width: 100%;
+	pointer-events: none;
+
+	> * {
+		pointer-events: auto;
+	}
+
+	.image-group-item-1 {
+		width: 25%;
+		margin: 0 0 4.7% -10.9%;
+	}
+
+	.image-group-item-2 {
+		width: 34.3%;
+	}
+}
+
+.section-image-group-1 {
+	position: relative;
+	padding-bottom: 31%;
+	z-index: 1;
+}
+
+.section-image-group-1 + * {
+	padding-top: 21%;
+}
+
+
+// Spacing
+* + .image-group-1 {
+	margin-top: 4.5%;
+}
+
+
+// Layers
+@import "image-group-2";
+@import "image-group-3";

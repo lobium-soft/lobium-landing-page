@@ -1,0 +1,45 @@
+include  ../layout/_layout
+
+// Template layouts
+section.section.section-lg.bg-transparent.text-center.position-relative
+	.container
+		div( data-animate!={ class: 'fadeInUp' } )
+			h1.h1-mod.text-primary 6
+			h3 Perfectly designed popup sets
+		.row.row-offset-md.row-30.row-xl-50
+			.col-xs-6.col-md-4( data-animate!={ class: 'fadeInUp' } )
+				+layout({
+					img:   'popup-sets/popup-set-01-390x318',
+					title: 'Corporate',
+					link:  'corporate-popup-set.html'
+				}).block.block-center.block-md
+			.col-xs-6.col-md-4( data-animate!={ class: 'fadeInUp' } )
+				+layout({
+					img:   'popup-sets/popup-set-02-390x318',
+					title: 'Product',
+					link:  'product-popup-set.html'
+				}).block.block-center.block-md
+			.col-xs-6.col-md-4( data-animate!={ class: 'fadeInUp' } )
+				+layout({
+					img:   'popup-sets/popup-set-03-390x318',
+					title: 'Course',
+					link:  '../lintense-course/course-popup-set.html'
+				}).block.block-center.block-md
+			.col-xs-6.col-md-4( data-animate!={ class: 'fadeInUp' } )
+				+layout({
+					img:   'popup-sets/popup-set-04-390x318',
+					title: 'Clinic',
+					link:  '../lintense-clinic/clinic-popup-set.html'
+				}).block.block-center.block-md
+			.col-xs-6.col-md-4( data-animate!={ class: 'fadeInUp' } )
+				+layout({
+					img:   'popup-sets/popup-set-05-390x318',
+					title: 'Delivery',
+					link:  '../lintense-delivery/delivery-popup-set.html'
+				}).block.block-center.block-md
+			.col-xs-6.col-md-4( data-animate!={ class: 'fadeInUp' } )
+				+layout({
+					img:   'popup-sets/popup-set-06-390x318',
+					title: 'Real Estate',
+					link:  '../lintense-real-estate/real-estate-popup-set.html'
+				}).block.block-center.block-md

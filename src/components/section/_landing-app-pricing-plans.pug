@@ -1,0 +1,73 @@
+include ../wave/_wave
+include ../multiswitch/_multiswitch
+include ../pricing/_pricing
+
+// Pricing
+section.section.section-lg.text-center.position-relative.pb-0#pricing
+	.bg-layer.bg-primary-violet.overflow-hidden( style='bottom: 30%' )
+		+wave-dark-1( style='bottom: -4.4vw' )
+	.container
+		.context-dark
+			h2( data-animate!={ class: 'fadeInUp' } ) Pricing plans
+			+multiswitch({
+				targets:   { targets: '#multiswitch, #pricing-group' },
+				textLeft:  'Monthly',
+				textRight: 'Yearly'
+			}).pricing-switch#multiswitch( data-animate!={ class: 'fadeInUp' } )
+		.row.row-offset-sm.justify-content-center
+			.col-xl-10
+				.pricing-group#pricing-group
+					// Owl Carousel
+					.owl-carousel.owl-style-2(
+						data-owl={
+							loop: false,
+							mouseDrag: false,
+							dots: true,
+							autoplay: false,
+							responsive: {
+								480: {
+									items: 2
+								},
+								768: {
+									items: 3,
+									margin: 0
+								}
+							}
+						}
+					)
+						+pricing({
+							title:     'Free package',
+							price:     '0',
+							priceYear: '0'
+						})( data-animate!={ class: 'fadeInRight', delay: '.3s' } )
+							ul.list.list-mark-check.lead.text-start
+								li.list-item Credit Card Management
+								li.list-item 2-Step Verification
+								li.list-item Bill & Debt Management
+								li.list-item.disabled Online Transactions
+								li.list-item.disabled 24/7 Support
+						+pricing({
+							headClass: 'bg-700 context-dark',
+							badge:     'Save 35%',
+							badgeYear: 'Save 40%',
+							title:     'Standard package',
+							price:     '46',
+							priceYear: '39'
+						}).pricing-center( data-animate!={ class: 'fadeInUp' } )
+							ul.list.list-mark-check.lead.text-start
+								li.list-item Credit Card Management
+								li.list-item 2-Step Verification
+								li.list-item Bill & Debt Management
+								li.list-item Online Transactions
+								li.list-item.disabled 24/7 Support
+						+pricing({
+							title:     '<span class="text-secondary">PRO</span> package',
+							price:     '89',
+							priceYear: '79'
+						})( data-animate!={ class: 'fadeInLeft', delay: '.3s' } )
+							ul.list.list-mark-check.lead.text-start
+								li.list-item Credit Card Management
+								li.list-item 2-Step Verification
+								li.list-item Bill & Debt Management
+								li.list-item Online Transactions
+								li.list-item 24/7 Support

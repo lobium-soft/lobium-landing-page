@@ -1,0 +1,26 @@
+include ../counter/_counter
+
+// Counter
+section#statistics.section.section-lg.section-lg-1.bg-800.context-dark.text-center.position-relative.overflow-hidden
+	+wave-dark.wave-dark-3
+	.container( data-animate!={ class: 'fadeInUp' } )
+		.row.row-30.justify-content-center
+			.col-6.col-sm-4.col-xl-3
+				+counter-default({
+					title:     'Founded in',
+					classMain: 'h1 text-primary',
+					value:     '1999'
+				})
+			.col-6.col-sm-4.col-xl-3
+				+counter-default({
+					title:     'Number of awards',
+					classMain: 'h1 text-primary-2',
+					value:     '120'
+				})
+			.col-6.col-sm-4.col-xl-3
+				+counter-default({
+					title:     'Nr. of regular clients',
+					value:     '500',
+					classMain: 'h1 text-secondary',
+					postfix:   'k'
+				})

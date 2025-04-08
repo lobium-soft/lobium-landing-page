@@ -1,0 +1,39 @@
+include ../logo/_logo
+include ../rights/_rights
+
+// Footer
+footer.section.footer.footer-sm.bg-transparent.pb-4
+	.container
+		.row.row-30.justify-content-md-between
+			.col-xs-6.col-md-4
+				+logo
+				ul.list.footer-contact-list
+					li.list-item
+						a.link-inherit( href='#' ) 178 West 27th Street, Suite 527
+							| #[br]
+							| New York NY 10012
+			.col-6.col-xs-3.col-md-2
+				ul.list.list-lg
+					li.list-item
+						a.list-link( href='#' ) About Us
+					li.list-item
+						a.list-link( href='#' ) What We Do
+					li.list-item
+						a.list-link( href='#' ) Portfolio
+					li.list-item
+						a.list-link( href='#' ) Contacts
+			.col-6.col-xs-3.col-md-2
+				ul.list.list-lg
+					li.list-item
+						a.list-link( href='#' ) Facebook
+					li.list-item
+						a.list-link( href='#' ) Instagram
+					li.list-item
+						a.list-link( href='#' ) Twitter
+			.col-md-3.offset-lg-1
+				ul.list.footer-contact-list
+					li.list-item.h4
+						a( href='tel:#' ) +1 234 567 8901
+					li.list-item: u: a.link-inherit( href='mailto:#' ) info@demolink.org
+
+		+rights

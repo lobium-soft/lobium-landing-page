@@ -1,0 +1,42 @@
+include ../input/_input
+
+// Popup discount
+#popup-discount.popup.popup-round.popup-discount.text-center.modal( tabindex='-1', role='dialog' )
+	.modal-dialog.modal-lg( role='document' )
+		.modal-content.slideInDown
+			button.close( type='button', data-dismiss='modal', aria-label='Close' )
+				span( aria-hidden='true' ) ×
+			.modal-body.popup-scroll.popup-discount-body
+				.popup-discount-left
+					h4.fw-medium.font-family-base.text-primary Subscribe and Enjoy
+					h2.mt-2 10% Discount
+					p.mt-3 Get 10% off by Signing Up to
+						br
+						| Our Newsletter.
+					//RD Mailform
+					form.rd-mailform( data-form-output='popup-discount-form-output', data-form-type='contact', method='post', action='components/rd-mailform/rd-mailform.php' )
+						.form-group
+							input.form-control( type='email', name='email', placeholder='Email address *', data-constraints='@Email @Required' )
+						.form-group
+							input.form-control( type='text', name='first-name', placeholder='First name *', data-constraints='@Required' )
+						.form-group
+							input.form-control( type='text', name='last-name', placeholder='Last name *', data-constraints='@Required' )
+						.offset-xxs
+							button.btn.btn-block.btn-secondary.btn-nuka( type='submit' ) Subscribe now!
+								span.btn-overlay
+					.offset-xs
+						+checkbox( {
+							id: 'check4'
+						} )
+							| I agree to the
+							| #[a.link.link-primary( href='#' ) Privacy Policy] and
+							| #[a.link.link-primary( href='#' ) Terms of Use],
+							| and want to receive news
+
+				.popup-discount-right.bg-image( style='background-image: url(images/corporate-popup/image-02-320x550.jpg);' )
+
+			.popup-swipe
+			.popup-link
+				a.link.link-light( href='#' ) Thank you, I’m already subscribed.
+
+#popup-discount-form-output.form-output.snackbar.snackbar-secondary

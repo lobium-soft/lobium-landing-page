@@ -1,0 +1,29 @@
+// Base
+.owl-style-3 {
+	.owl-nav {
+		display: none;
+	}
+
+	.owl-dots {
+		display: block;
+	}
+
+	.owl-stage-outer {
+		padding: 30px 20px;
+		margin: -30px -20px;
+	}
+}
+
+
+// Media
+@include media-breakpoint-up(xl) {
+	.owl-style-3 {
+		.owl-nav {
+			display: block;
+		}
+
+		.owl-dots {
+			display: none;
+		}
+	}
+}

@@ -1,0 +1,71 @@
+include ../team/_team
+
+// Our team
+section.section.section-lg.bg-transparent.text-center
+	.container
+		h2( data-animate!={ class: 'fadeInUp' } ) Our team
+		// Owl Carousel
+		.owl-carousel.owl-style-6.mt-5(
+			data-owl={
+				dots: true,
+				responsive: {
+					480: {
+						items: 2
+					},
+					768: {
+						items: 3
+					},
+					1200: {
+						items: 4
+					}
+				}
+			}
+		)
+			+team({
+				img:      'persons/person-10-280x370',
+				name:     'Bruce Young',
+				position: 'Founder, CEO',
+				text:     'Bruce is our CEO and founder who manages all the major processes happening daily in our digital agency.'
+			}).block.block-center.block-sm
+			+team({
+				img:      'persons/person-11-280x370',
+				name:     'Julie Foster',
+				position: 'Marketing Strategist',
+				text:     'Julie joined our team in 2006 and today she is one of the best marketing strategist at Lintense Agency.'
+			}).block.block-center.block-sm
+			+team({
+				img:      'persons/person-12-280x370',
+				name:     'Louis White',
+				position: 'SEO Specialist',
+				text:     'When it comes to quality SEO, no one is better at it than Louis. He is the true guru of search engine optimization.'
+			}).block.block-center.block-sm
+			+team({
+				img:      'persons/person-13-280x370',
+				name:     'Melissa Butler',
+				position: 'SMM Expert',
+				text:     'The professionalism and skills that Melissa has in SMM are unmatched. She always delivers the best results.'
+			}).block.block-center.block-sm
+			+team({
+				img:      'persons/person-14-280x370',
+				name:     'Donald Simmons',
+				position: 'Graphic Designer',
+				text:     'If you need a memorable and impressive design for your brand, Donald is the graphic designer that you need.'
+			}).block.block-center.block-sm
+			+team({
+				img:      'persons/person-15-280x370',
+				name:     'Justin Baker',
+				position: 'Paid Media Analyst',
+				text:     'Justin works with modern paid media to help optimize ROI on a variety of platforms and provide analytical support.'
+			}).block.block-center.block-sm
+			+team({
+				img:      'persons/person-16-280x370',
+				name:     'Ruby Wood',
+				position: 'Web Developer',
+				text:     'Ruby Wood helps our customers to gain success on the Web by developing quality websites and web apps.'
+			}).block.block-center.block-sm
+			+team({
+				img:      'persons/person-17-280x370',
+				name:     'Carlos Phillips',
+				position: 'PPC Specialist',
+				text:     'Carlos creates and plans a wide variety of PPC campaigns across a range of available digital channels.'
+			}).block.block-center.block-sm

@@ -1,0 +1,47 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../base/mixins";
+@import "../bootstrap/scss/mixins";
+
+
+// Base
+.box {
+	padding: px-to-rem( 30px );
+	color: $body-color;
+	background-color: $white;
+	box-shadow: $box-shadow-sm;
+}
+
+
+// Spacing
+* + .box-title {
+	margin-top: px-to-rem( 6px )
+}
+
+* + .box-text {
+	margin-top: px-to-rem( 14px )
+}
+
+* + .box-btn {
+	margin-top: px-to-rem( 20px )
+}
+
+
+// Media
+@include media-breakpoint-up(md) {
+	.box {
+		padding: px-to-rem( 40px );
+	}
+
+	* + .box-btn {
+		margin-top: px-to-rem( 30px )
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	.box {
+		padding: px-to-rem( 50px );
+	}
+}

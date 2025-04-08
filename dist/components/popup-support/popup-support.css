@@ -1,0 +1,26 @@
+.popup-support .modal-dialog {
+  align-items: flex-end;
+  max-width: 26.875rem;
+  margin-right: 0;
+}
+.popup-support .modal-content {
+  margin-bottom: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.popup-support .modal-header {
+  border-bottom: none;
+}
+.popup-support .modal-body {
+  padding-top: 1.875rem;
+}
+.popup-support .close {
+  right: 0;
+  left: auto;
+}
+
+@media (min-width: 1200px) {
+  .popup-support .modal-content {
+    margin-right: 2.1875rem;
+  }
+}

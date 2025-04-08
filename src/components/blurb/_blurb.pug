@@ -1,0 +1,64 @@
+//- Blurb
+	@param {object} data - data object
+	@param {string} data.title - blurb title
+	@param {string} data.titleClass - blurb title class
+	@param {string} data.text - blurb text
+	@param {string} data.textClass - blurb textclass
+mixin blurb( data )
+	// Blurb
+	article.blurb&attributes( attributes )
+		.media( class= data.media )
+			.media-left
+				.blurb-icon
+					block
+			.media-body
+				.blurb-title.h4( class= data.titleClass )!= data.title
+				.blurb-text( class= data.textClass )= data.text
+
+
+//- Blurb boxed
+	@param {object} data - data object
+	@param {string} data.title - blurb title
+	@param {string} data.titleClass - blurb title class
+	@param {string} data.text - blurb text
+	@param {string} data.textClass - blurb textclass
+mixin blurb-boxed( data )
+	// Blurb boxed
+	article.blurb.blurb-boxed&attributes( attributes )
+		.media( class= data.media )
+			.media-left
+				.blurb-icon
+					block
+			.media-body
+				.blurb-title.h6( class= data.titleClass )!= data.title
+				.blurb-text( class= data.textClass )= data.text
+
+
+//- Blurb modern
+	@param {object} data - data object
+	@param {string} data.title - box title
+	@param {string} data.text - box text
+	@param {string} data.classYear - box classYear
+	@param {string} data.year - box year
+mixin blurb-modern( data )
+	// Blurb modern
+	article.blurb.blurb-modern&attributes( attributes )
+		.blurb-modern-title.h4= data.title
+		.blurb-modern-text= data.text
+		.blurb-modern-year.h1( class= data.classYear )= data.year
+
+
+//- Blurb creative
+	@param {object} data - data object
+	@param {string} data.title - blurb title
+	@param {string} data.text - blurb text
+mixin blurb-creative( data )
+	// Blurb creative
+	article.blurb.blurb-creative&attributes( attributes )
+		.media( class= data.media )
+			.media-left
+				.blurb-creative-icon
+					block
+			.media-body
+				.blurb-creative-title.h6= data.title
+				.blurb-creative-text= data.text

@@ -1,0 +1,35 @@
+include ../post/_post
+
+// Tips from Our Team
+section#our-tips.section.section-lg.bg-transparent
+	.container
+		.text-center( data-animate!={ class: 'fadeInUp' } )
+			h6 Tips from Our Team
+			h2 Browse countless support material, tutorials, reviews, and
+				| #[br.d-none.d-xl-block]
+				| recommendations from our web experts
+		.row.row-offset-md.row-30.justify-content-center
+			.col-xs-6.col-md-5.col-lg-3( data-animate!={ class: 'fadeInUp' } )
+				+post({
+					img:   'image-13-280x280',
+					title: 'Creating an efficient ui',
+					text:  'Wondering how to create an UI that works? Browse these tips prepared by our web design experts.'
+				}).block.block-center.block-sm
+			.col-xs-6.col-md-5.col-lg-3( data-animate!={ class: 'fadeInUp' } )
+				+post({
+					img:   'image-17-280x280',
+					title: 'New web design tools',
+					text:  'We’ve prepared a list of 12 new web design tools and resources released this week and mostly free.'
+				}).block.block-center.block-sm
+			.col-xs-6.col-md-5.col-lg-3( data-animate!={ class: 'fadeInUp' } )
+				+post({
+					img:   'image-09-280x280',
+					title: 'Why seo matters',
+					text:  'SEO gives company owners the power to reach the right people when they are actively searching out information.'
+				}).block.block-center.block-sm
+			.col-xs-6.col-md-5.col-lg-3( data-animate!={ class: 'fadeInUp' } )
+				+post({
+					img:   'image-16-280x280',
+					title: '8 incredible jquery tips',
+					text:  'jQuery has a variety of possibilties to make your website more functional than ever. Here are some basic tricks.'
+				}).block.block-center.block-sm

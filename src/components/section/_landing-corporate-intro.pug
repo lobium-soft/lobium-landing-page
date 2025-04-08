@@ -1,0 +1,15 @@
+include ../wave/_wave
+
+// Welcome to Lintense
+section.section.section-lg.context-dark.text-500.text-center.position-relative.pb-0
+	.bg-layer.bg-800( style='bottom: 12%' )
+		+wave-dark
+	.container
+		div( data-animate!={ class: 'fadeInUp' } )
+			h6 Welcome to Lintense
+			h1 We are a leading web design agency providing creative solutions
+			p.lead.d-none.d-sm-block With over 20 years of experience on the digital market, we can offer what you are looking for,
+				| #[br.d-none.d-lg-block]
+				| from a landing page to a complex multipage website.
+		+img( 'blurs/blur-01-830x473.png' )( data-animate!={ class: 'fadeInUp' } )
+

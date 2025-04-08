@@ -1,0 +1,10 @@
+//- Thumbnail
+	@param {object} data - data object
+	@param {string} data.imgOriginal - thumb img original
+	@param {string} data.img - thumb img
+mixin thumbnail( data )
+	// Thumbnail
+	a.thumbnail.lightgallery-item( href='images/' + data.imgOriginal + '.jpg' )
+		+img( data.img ).thumbnail-image
+		span.thumbnail-icon +
+

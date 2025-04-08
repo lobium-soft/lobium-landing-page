@@ -1,0 +1,43 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../base/mixins";
+@import "../bootstrap/scss/mixins";
+
+
+// Base
+.popup-countdown {
+	padding-right: 0 !important;
+
+	.modal-dialog {
+		display: block;
+		max-width: none;
+	}
+
+	.modal-content {
+		align-items: center;
+		flex-direction: row;
+		min-height: inherit;
+		width: 100%;
+		margin: 0;
+		border-radius: 0;
+		box-shadow: none;
+	}
+
+	.modal-body {
+		width: 100%;
+		padding: 0;
+	}
+
+	.close {
+		top: px-to-rem( 30px );
+		right: px-to-rem( 30px );
+		bottom: auto;
+		left: auto;
+
+		&:hover {
+			color: rgba( $white, .7 );
+		}
+	}
+}

@@ -1,0 +1,64 @@
+// Counter boxed
+.counter-boxed {
+	text-align: center;
+	padding: px-to-rem( 20px, 15px, 25px );
+	width: px-to-rem( 170px );
+	border: 2px solid $white;
+	background: $white;
+	box-shadow: $box-shadow;
+}
+
+.counter-boxed-icon {
+	color: $gray-700;
+}
+
+.counter-boxed-main {
+	line-height: 1.1;
+	color: $primary;
+}
+
+
+// Spacing
+* + .counter-boxed-title {
+	margin-top: px-to-rem( 10px );
+}
+
+* + .counter-boxed-main {
+	margin-top: 0;
+}
+
+
+// Contexts
+.context-dark {
+	.counter-boxed {
+		background: transparent;
+	}
+
+	.counter-boxed-main {
+		color: inherit;
+	}
+
+	.counter-boxed-icon {
+		color: inherit;
+
+		path {
+			fill: currentColor
+		}
+	}
+}
+
+
+// Media
+@include media-breakpoint-up(xl) {
+	.counter-boxed {
+		padding: px-to-rem( 30px, 15px, 35px );
+	}
+
+	.counter-boxed-main {
+		font-size: px-to-rem( 50px );
+	}
+
+	* + .counter-boxed-title {
+		margin-top: px-to-rem( 15px );
+	}
+}

@@ -1,0 +1,37 @@
+include ../wave/_wave
+include ../counter/_counter
+include ../lin-icon/_lin-icon
+
+// Advantages
+section#features.section.section-lg.position-relative
+	+wave-light
+	.container
+		.row.row-30.align-items-center.justify-content-center
+			.col-xs-8.col-md-6( data-animate!={ class: 'fadeInUp' } )
+				+img( 'products/product-02-610x508.png' ).filter-shadow-xl
+			.col-xs-8.col-md-6( data-animate!={ class: 'fadeInUp' } )
+				.block.block-center.block-md
+					h2 Easily control your smartphone
+					p.lead With our new line of headphones, you’ll be able to remain seamlessly connected to your phone without looking at it.
+		.row.row-30.align-items-center.justify-content-center.flex-md-row-reverse
+			.col-xs-8.col-md-6( data-animate!={ class: 'fadeInUp' } )
+				+img( 'products/product-03-610x508.png' ).filter-shadow-xl
+			.col-xs-8.col-md-6( data-animate!={ class: 'fadeInUp' } )
+				.block.block-center.block-md
+					h2 Charge your headphones quickly
+					p.lead With Q-Charge patented technology, you can have fully charged headphones in 10 mins.
+					.row.row-30
+						.col-6
+							+counter-boxed({
+								title:   'Charge',
+								number:  '10',
+								postfix: 'm'
+							})
+								+lin-socket
+						.col-6
+							+counter-boxed({
+								title:   'Up to',
+								number:  '4',
+								postfix: 'h'
+							})
+								+lin-battery

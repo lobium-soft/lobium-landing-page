@@ -1,0 +1,33 @@
+include ../blurb/_blurb
+include ../lin-icon/_lin-icon
+
+// Features
+section#what-we-do.section.section-lg.bg-transparent
+	.container
+		.row.row-30
+			.col-md-10.col-lg-3( data-animate!={ class: 'fadeInUp' } )
+				h2 How our SEO team can help you thrive
+				p.lead Our accomplishments are as remarkable as they are diverse: from taking small stores to local domination, and more!
+			.col-lg-9
+				.row.row-30.gutters-20
+					.col-xs-6.col-md-4( data-animate!={ class: 'fadeInUp' } )
+						+blurb-boxed({
+							media: 'media-sm flex-column',
+							title: 'Search engine optimization consultancy',
+							text:  'We help you define your SEO objectives & develop a realistic strategy with you.'
+						})
+							+lin-presentation.lin-lg.blurb-icon-svg
+					.col-xs-6.col-md-4( data-animate!={ class: 'fadeInUp' } )
+						+blurb-boxed({
+							media: 'media-sm flex-column',
+							title: 'Keyword & market research',
+							text:  'Solid keyword & market research help guide SEO strategy and allow us to provide realistic projections and forecasts of opportunity within your market.'
+						})
+							+lin-target.lin-lg.blurb-icon-svg
+					.col-xs-6.col-md-4( data-animate!={ class: 'fadeInUp' } )
+						+blurb-boxed({
+							media: 'media-sm flex-column',
+							title: 'Technical SEO audit',
+							text:  'Our audits ensure the search engines can index your web pages for maximum visibility.'
+						})
+							+lin-trophy.lin-lg.blurb-icon-svg

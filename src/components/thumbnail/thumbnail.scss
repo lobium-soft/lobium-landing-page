@@ -1,0 +1,88 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../base/mixins";
+@import "../bootstrap/scss/mixins";
+
+
+// Base
+.thumbnail {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.thumbnail-image {
+	width: 100%;
+}
+
+.thumbnail-icon {
+	position: absolute;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: px-to-rem( 70px );
+	height: px-to-rem( 70px );
+	font-size: px-to-rem( 50px );
+	line-height: 1;
+	border-radius: 50%;
+	color: $white;
+	font-weight: 400;
+	font-family: $font-family-sec;
+	transition: .3s ease;
+	z-index: 1;
+
+	&::before,
+	&::after {
+		position: absolute;
+		content: '';
+		transition: inherit;
+		border-radius: inherit;
+		z-index: -1;
+
+	}
+
+	&::before {
+		top: px-to-rem( -8px );
+		right: px-to-rem( -8px );
+		bottom: px-to-rem( -8px );
+		left: px-to-rem( -8px );
+		border: px-to-rem( 8px ) solid rgba($gray-700, .3);
+	}
+
+	&::after {
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba($gray-700, .6);
+	}
+}
+
+
+// Contexts
+.desktop {
+	.thumbnail-icon {
+		opacity: 0;
+
+		&::before {
+			transform: scale(1.3);
+		}
+
+		&::after {
+			transform: scale(.7);
+		}
+	}
+
+	.thumbnail:hover {
+		.thumbnail-icon {
+			opacity: 1;
+
+			&::before,
+			&::after {
+				transform: none;
+			}
+		}
+	}
+}

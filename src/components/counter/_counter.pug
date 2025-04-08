@@ -1,0 +1,32 @@
+//- Counter default
+	@param {object} data - counter data object
+	@param {number} data.value - counter value
+	@param {string} [data.postfix] - counter value postfix character
+	@param {string} [data.title] - counter title
+	@param {string} [data.classMain] - counter classMain
+mixin counter-default( data )
+	// Counter default
+	article.counter-default&attributes( attributes )
+		if ( data.title )
+			.counter-default-title.h4= data.title
+		.counter-default-main( class= data.classMain )
+			span.counter( data-counter='' )= data.value
+			if ( data.postfix )
+				span.counter-postfix= data.postfix
+
+
+//- Counter boxed
+	@param {object} data - counter data object
+	@param {number} data.value - counter value
+	@param {string} [data.postfix] - counter value postfix character
+	@param {string} [data.title] - counter title
+mixin counter-boxed( data )
+	// Counter boxed
+	article.counter-boxed&attributes( attributes )
+		.counter-boxed-icon
+			block
+		.counter-boxed-title.h5= data.title
+		.counter-boxed-main.h1
+			span.counter( data-counter='' )= data.number
+			if ( data.postfix )
+				span.counter-postfix= data.postfix

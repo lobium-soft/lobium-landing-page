@@ -1,0 +1,27 @@
+// Contact Our Team
+section#contacts.section.section-lg.bg-transparent
+	.container
+		.row.row-30.align-items-center
+			.col-md-4.col-lg-5( data-animate!={ class: 'fadeInUp' } )
+				h6 Contact Our Team
+				h2 Get in touch with us
+				p.lead If you have a question or a testimonial for us, feel free to contact us using the form on the right.
+			.col-md-8.col-lg-7( data-animate!={ class: 'fadeInUp' } )
+				article.box.ms-xl-5
+					//RD Mailform
+					form.rd-mailform.box-form( data-form-output='form-output-global', data-form-type='contact', method='post', action='components/rd-mailform/rd-mailform.php' )
+						.row.row-20.gutters-20
+							.col-xs-6.col-md-12.col-lg-6
+								.form-group
+									input.form-control( type='text', name='name', placeholder='Your name *', data-constraints='@Required' )
+							.col-xs-6.col-md-12.col-lg-6
+								.form-group
+									input.form-control( type='email', name='email', placeholder='Your e-mail address *', data-constraints='@Email @Required' )
+							.col-12
+								.form-group
+									textarea.form-control( name='question', placeholder='Your question', rows='5', data-constraints='@Required' )
+						.box-btn
+							button.btn.btn-round.btn-secondary.btn-nuka( type='submit' ) Send
+								span.btn-overlay
+
+			#form-output-global.form-output.snackbar.snackbar-secondary

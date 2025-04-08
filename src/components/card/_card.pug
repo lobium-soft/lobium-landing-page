@@ -1,0 +1,26 @@
+//- Bootstrap Card
+	@param {object}  data           - card object
+	@param {boolean} data.show      - is card not collapsed
+	@param {string}  data.parentId  - parent accordion id
+	@param {string}  data.title     - card title
+mixin card( data )
+	-
+		var
+			headId = data.parentId +'-card-head-'+ randomStr(8),
+			bodyId = data.parentId +'-card-body-'+ randomStr(8);
+
+	//Bootstrap card
+	article.card.card-custom&attributes( attributes )
+		.card-header( role='tab' )
+			.card-title
+				a( id= headId, data-bs-toggle='collapse', data-bs-parent='#'+ data.parentId, href='#'+ bodyId, aria-controls= bodyId, aria-expanded= Boolean( data.show ).toString(), class={ collapsed: !data.show }, role='button' )
+					-if ( data.cardIcon )
+						img.card-icon( src='images/' + data.cardIcon, alt='' )
+					span.card-title-main= data.title
+					- if ( data.titleText )
+						span.card-title-text= data.titleText
+					.card-arrow
+
+		.collapse( id= bodyId, aria-labelledby= headId, data-bs-parent='#'+ data.parentId, class={ show: data.show }, role='tabpanel' )
+			.card-body
+				block

@@ -1,0 +1,50 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../base/mixins";
+@import "../bootstrap/scss/mixins";
+
+
+// Base
+.popup-newsletter {
+	.modal-body {
+		padding: 0;
+	}
+}
+
+.popup-newsletter-left {
+	padding: px-to-rem( 40px, 30px );
+	flex-basis: calc( 400/700*100% );
+}
+
+.popup-newsletter-right {
+	padding: px-to-rem( 40px, 30px );
+	flex-basis: calc( 300/700*100% );
+}
+
+
+// Contexts
+.popup-round {
+	.popup-newsletter-right {
+		border-radius: 0 $popup-border-radius $popup-border-radius 0;
+	}
+}
+
+
+// Media
+@include media-breakpoint-down(md) {
+	.popup-newsletter-left,
+	.popup-newsletter-right {
+		flex-shrink: 0;
+		flex-basis: 100%;
+		max-width: 100%;
+	}
+}
+
+@include media-breakpoint-up(sm) {
+	.popup-newsletter-left {
+		padding-left: px-to-rem( 40px );
+		padding-right: px-to-rem( 40px );
+	}
+}

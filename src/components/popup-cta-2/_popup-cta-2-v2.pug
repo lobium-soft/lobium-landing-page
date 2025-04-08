@@ -1,0 +1,15 @@
+// Popup cta
+#popup-cta-2.popup.text-center.modal( tabindex='-1', role='dialog' )
+	.modal-dialog( role='document' )
+		.modal-content.flipInY
+			button.close( type='button', data-dismiss='modal', aria-label='Close' )
+				span( aria-hidden='true' ) ×
+			.modal-header.overflow-hidden.border-bottom-0.p-0
+				+img( 'product-popup/image-04-460x270' ).w-100
+			.modal-body
+				h4.fw-medium.font-family-base Contact Our Team
+				h3.text-primary-orange.mt-1 Get in Touch with Us
+				p.mt-2 If you have a question or a testimonial for us, feel free to contact us right now.
+				.offset-xxs
+					a.btn.btn-round.btn-secondary.btn-nuka( href='#' ) Send a message
+						span.btn-overlay

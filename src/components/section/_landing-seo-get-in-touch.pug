@@ -1,0 +1,31 @@
+// Contacts
+section.section.section-lg.bg-primary-orange.section-offset-1
+	.container
+		.row.row-30.flex-sm-row-reverse
+			.col-sm-6.col-lg-7.context-dark( data-animate!={ class: 'fadeInUp' } )
+				.ms-xl-5
+					h1 It’s time to put your website on the internet’s front page
+					p.lead Working with us will not only influence your website’s
+						| #[br.d-none.d-lg-block]
+						| ranks in a positive way. It will also help you with:
+					ul.list-mark-check.lead
+						li.list-item SEO Audit
+						li.list-item SEO Consulting
+
+			.col-sm-6.col-lg-5( style='z-index: 1' data-animate!={ class: 'fadeInUp' } )
+				article.box
+					.box-subtitle.h6 Contact Our Team
+					.box-title.h3 Get in touch with us
+					.box-text If you have a question or a testimonial for us, feel free to contact us using the form below.
+					//RD Mailform
+					form.rd-mailform.box-form( data-form-output='form-output-global-2', data-form-type='contact', method='post', action='components/rd-mailform/rd-mailform.php' )
+						.form-group
+							input.form-control( type='text', name='name', placeholder='Your name *', data-constraints='@Required' )
+						.form-group
+							input.form-control( type='email', name='email', placeholder='Your e-mail address *', data-constraints='@Email @Required' )
+						.form-group
+							textarea.form-control( name='question', placeholder='Your question', rows='5', data-constraints='@Required' )
+						.box-btn
+							button.btn.btn-round.btn-secondary.btn-nuka( type='submit' ) Send
+								span.btn-overlay
+			#form-output-global-2.form-output.snackbar.snackbar-secondary

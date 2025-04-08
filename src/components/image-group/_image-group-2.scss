@@ -1,0 +1,168 @@
+// Base
+.image-group-2 {
+	position: relative;
+	width: 100%;
+	margin-top: -18.5%;
+	padding-bottom: 39.3%;
+	pointer-events: none;
+
+	> * {
+		pointer-events: auto;
+	}
+
+	.layer {
+		position: relative !important;
+	}
+
+	[ class*='image-group-item-' ] {
+		position: absolute;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.image-group-item-1,
+	.image-group-item-2,
+	.image-group-item-8 {
+		img {
+			box-shadow: $box-shadow-sm;
+			border-radius: 6px;
+		}
+	}
+
+	.image-group-item-3,
+	.image-group-item-6 {
+		img {
+			box-shadow: $box-shadow;
+			border-radius: 6px;
+		}
+	}
+
+	.image-group-item-1 {
+		top: 10%;
+		left: 0;
+		width: 12.45%;
+	}
+
+	.image-group-item-2 {
+		top: 0;
+		left: 16.5%;
+		width: 9.25%;
+	}
+
+	.image-group-item-3 {
+		top: 26%;
+		left: 9%;
+		width: 14.61%;
+	}
+
+	.image-group-item-4 {
+		top: 15%;
+		left: 30%;
+		width: 8.94%;
+
+		img {
+			box-shadow: $box-shadow;
+			border-radius: 2px;
+		}
+	}
+
+	.image-group-item-5 {
+		top: 22%;
+		left: 37%;
+		width: 19.23%;
+
+		img {
+			box-shadow: 30px 34px 66px rgba($gray-700, .15);
+			border-radius: 6px;
+		}
+	}
+
+	.image-group-item-6 {
+		top: 19%;
+		left: 65%;
+		width: 13.87%;
+		z-index: 1;
+	}
+
+	.image-group-item-7 {
+		top: 38%;
+		left: 58.5%;
+		width: 8.83%;
+
+		img {
+			box-shadow: $box-shadow-sm;
+			border-radius: 3px;
+		}
+	}
+
+	.image-group-item-8 {
+		top: 33%;
+		left: 83%;
+		width: 17.18%;
+	}
+
+	.image-group-item-9 {
+		top: 45%;
+		left: 75%;
+		width: 11.72%;
+		z-index: 1;
+
+		img {
+			border-radius: 6px;
+		}
+	}
+
+	.image-group-item-10 {
+		top: 64%;
+		left: 21%;
+		width: 10.83%;
+
+		img {
+			border-radius: 2px;
+		}
+	}
+
+	.image-group-item-11 {
+		top: 71%;
+		left: 29%;
+		width: 13.24%;
+
+		img {
+			box-shadow: $box-shadow;
+			border-radius: 3px;
+		}
+	}
+
+	.image-group-item-12 {
+		top: 79%;
+		left: 49%;
+		width: 11.25%;
+
+		img {
+			box-shadow: 10px 15px 50px rgba($gray-700, .1);
+			border-radius: 6px;
+		}
+	}
+
+	.image-group-item-13 {
+		top: 57%;
+		left: 62.5%;
+		width: 14.77%;
+
+		img {
+			border-radius: 6px;
+		}
+	}
+
+	.image-group-item-14 {
+		top: 71%;
+		left: 83%;
+		width: 8.04%;
+
+		img {
+			box-shadow: $box-shadow;
+		}
+	}
+}

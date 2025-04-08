@@ -1,0 +1,59 @@
+.quote-body {
+  border-left: 5px solid #01C9F5;
+  padding-left: 1.25rem;
+}
+
+.quote-text {
+  font-style: italic;
+  color: #0066FF;
+}
+
+.quote-author-name {
+  font-family: inherit;
+}
+
+* + .quote {
+  margin-top: 1.875rem;
+}
+
+* + .quote-author {
+  margin-top: 1.5625rem;
+}
+
+.quote-boxed {
+  text-align: left;
+  padding: 1.875rem;
+  background-color: #FFF;
+  box-shadow: 0 5px 20px rgba(41, 48, 67, 0.08);
+}
+
+.quote-boxed-1 {
+  margin-top: 3.75rem;
+}
+
+.quote-boxed-2 {
+  margin-top: 2.5rem;
+}
+
+.quote-boxed-text {
+  display: inline-block;
+}
+.quote-boxed-text::before {
+  display: inline-block;
+  padding-top: 0.5rem;
+  font-size: 2.5rem;
+  line-height: 0.8;
+  color: #0066FF;
+}
+
+@media (min-width: 1600px) {
+  .quote-boxed {
+    padding: 2.5rem 3.125rem 3.125rem;
+  }
+  .quote-boxed-text::before {
+    font-size: 3.75rem;
+  }
+  * + .quote {
+    margin-top: 2.5rem;
+  }
+}

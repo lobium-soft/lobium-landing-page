@@ -1,0 +1,100 @@
+// Base
+.card-corporate {
+	text-align: left;
+	border-radius: $accordion-corporate-border-radius;
+	background: $gray-100;
+
+	.card-title a,
+	.card-body {
+		background: $accordion-corporate-background;
+	}
+
+	.card-title a {
+		position: relative;
+		z-index: 1;
+		padding: $accordion-corporate-header-padding;
+		font-weight: 700;
+		font-size: px-to-rem( 16px );
+		line-height: 1.6;
+		letter-spacing: 0;
+		color: $accordion-corporate-color;
+		transition: background .3s ease;
+		border-radius: $accordion-corporate-border-radius $accordion-corporate-border-radius 0 0;
+		background: transparent;
+		box-shadow: none;
+
+		// Open state
+		.card-arrow {
+			color: $gray-700;
+
+			&:before {
+				content: '\f239';
+			}
+		}
+
+		// Collapsed state
+		&.collapsed {
+			border-radius: $accordion-corporate-border-radius;
+			background: $white;
+			box-shadow: $accordion-corporate-shadow;
+
+			.card-arrow {
+				color: rgba($gray-700, .4);
+
+				&:before {
+					content: '\f236';
+				}
+			}
+		}
+	}
+
+	// Panel arrow
+	.card-arrow {
+		position: absolute;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		width: px-to-rem( 52px );
+		transition: .3s ease;
+		z-index: 2;
+
+		&::before {
+			position: absolute;
+			top: 50%;
+			z-index: 4;
+			transform: translateY(-50%);
+			font-family: 'Material Design Icons';
+		}
+	}
+
+	.collapse {
+		position: relative;
+		z-index: 1;
+		color: $accordion-corporate-content-color;
+		border-radius: 0 0 $accordion-corporate-border-radius $accordion-corporate-border-radius;
+	}
+
+	.card-body {
+		padding: $accordion-corporate-content-padding;
+		border-radius: 0 0 $accordion-corporate-border-radius $accordion-corporate-border-radius;
+		background: transparent;
+	}
+}
+
+
+// Media
+@include media-breakpoint-down(lg) {
+	.card-corporate {
+		.card-title a,
+		.card-body {
+			padding-left: px-to-rem( 25px );
+		}
+
+		.card-title a {
+			font-size: px-to-rem( 18px );
+		}
+	}
+}

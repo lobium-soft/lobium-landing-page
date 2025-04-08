@@ -1,0 +1,103 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../base/mixins";
+@import "../bootstrap/scss/mixins";
+
+
+// Base
+.footer {
+	padding: px-to-rem( 60px, 0 );
+}
+
+.footer-list {
+	font-weight: 400;
+	@include group( px-to-rem( 20px ), px-to-rem( 10px ) );
+
+	> * {
+		display: inline-block;
+	}
+}
+
+
+// Spacing
+* + .footer-divider {
+	margin-top: px-to-rem( 60px );
+}
+
+.footer-title + * {
+	margin-top: px-to-rem( 10px );
+}
+
+.footer-divider + .footer-panel {
+	margin-top: px-to-rem( 40px );
+}
+
+
+// Modifying
+.footer-sm {
+	.footer-divider + .footer-panel {
+		margin-top: px-to-rem( 8px );
+	}
+}
+
+
+// Media
+@include media-breakpoint-up(md) {
+	.footer {
+		padding: px-to-rem( 80px, 0 );
+	}
+
+	.footer-contact-list {
+		> .list-item + .list-item {
+			margin-top: 1.25em;
+		}
+	}
+
+	* + .footer-divider {
+		margin-top: px-to-rem( 80px );
+	}
+
+	.footer-title + * {
+		margin-top: px-to-rem( 20px );
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	.footer {
+		padding: px-to-rem( 100px, 0 );
+	}
+
+	.footer.footer-sm {
+		padding: px-to-rem( 90px, 0 );
+
+		* + .footer-divider {
+			margin-top: px-to-rem( 90px );
+		}
+	}
+
+	* + .footer-divider {
+		margin-top: px-to-rem( 100px );
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	.footer {
+		padding: px-to-rem( 120px, 0 );
+	}
+
+	* + .footer-divider {
+		margin-top: px-to-rem( 120px );
+	}
+}
+
+@include media-breakpoint-up(xxl) {
+	.footer {
+		padding: px-to-rem( 140px, 0 );
+	}
+
+	* + .footer-divider {
+		margin-top: px-to-rem( 140px );
+	}
+}

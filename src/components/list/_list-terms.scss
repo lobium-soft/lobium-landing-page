@@ -1,0 +1,30 @@
+// Base
+.list-terms-title {
+	padding-left: 1em;
+	text-indent: -1em;
+
+	&::before {
+		display: inline-block;
+		vertical-align: middle;
+		content: '';
+		width: .38em;
+		height: .38em;
+		margin-right: .62em;
+		border-radius: 50%;
+		background-color: $secondary;
+	}
+}
+
+
+// Spacing
+* + .list-terms-item {
+	margin-top: px-to-rem( 30px );
+}
+
+
+// Media
+@include media-breakpoint-up(xl) {
+	* + .list-terms-item {
+		margin-top: px-to-rem( 40px );
+	}
+}

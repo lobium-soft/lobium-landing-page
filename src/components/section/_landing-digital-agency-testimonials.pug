@@ -1,0 +1,76 @@
+include ../wave/_wave
+include ../quote/_quote
+
+// Testimonials
+section.section.section-lg.bg-gradient-blue-aqua.text-center.position-relative.pb-4
+	+wave-1
+	.container
+		.context-dark( data-animate!={ class: 'fadeInUp' } )
+			h2 Recent testimonials by
+				| #[br.d-none.d-md-block]
+				| our clients
+			p.lead Look at what our clients have to say about our digital marketing solutions.
+		.row.row-offset-md.justify-content-center
+			.col-xl-10: .mx-3
+				// Owl Carousel
+				.owl-carousel.owl-visible(
+					data-owl={
+						margin: 20,
+						slideTransition: 'linear',
+						autoplayTimeout: 4500,
+						autoplaySpeed: 4500,
+						responsive: {
+							768: {
+								items: 2
+							}
+						}
+					}
+				)
+					+quote-boxed({
+						text:     'Lintense are a pleasure to work with. They really have their fingers on the pulse when it comes to digital marketing.',
+						img:      'persons/person-02-60x60',
+						name:     'Roy Sanders',
+						position: 'Regular Client'
+					}).quote-boxed-2
+					+quote-boxed({
+						text:     'I’ve been impressed with your team’s  methodology and approach to the campaigns we have run with them to date. We feel that they have an in-depth knowledge of SEO/PPC, which is immediately apparent.',
+						img:      'persons/person-03-60x60',
+						name:     'Anna Robinson',
+						position: 'Regular Client'
+					}).quote-boxed-1
+					+quote-boxed({
+						text:     'The team at Lintense has consistently delivered for our AdWords campaigns. These guys know how to achieve results!',
+						img:      'persons/person-04-60x60',
+						name:     'Craig Edwards',
+						position: 'Regular Client'
+					})
+					+quote-boxed({
+						text:     'Thank you for an outstanding digital marketing campaign you’ve delivered for our company! It resulted in direct savings.',
+						img:      'persons/person-05-60x60',
+						name:     'Judith Bell',
+						position: 'Regular Client'
+					}).quote-boxed-1
+					+quote-boxed({
+						text:     'I would just like to say thank you for your effective online marketing services, for your professional support!',
+						img:      'persons/person-06-60x60',
+						name:     'Matthew Wood',
+						position: 'Regular Client'
+					}).quote-boxed-2
+					+quote-boxed({
+						text:     'Lintense have been a fantastic partner in not only helping us define and optimize our core search objectives, but also in responding to tactical challenges and new opportunities. Their reporting makes it easy to keep everyone here up to speed.',
+						img:      'persons/person-07-60x60',
+						name:     'Denise Sanders',
+						position: 'Regular Client'
+					}).quote-boxed-1
+					+quote-boxed({
+						text:     'Your digital marketing agency has been a great help to my marketing efforts for the past several years. Thank you!',
+						img:      'persons/person-08-60x60',
+						name:     'Peter Morris',
+						position: 'Regular Client'
+					})
+					+quote-boxed({
+						text:     'Thank you for helping my company  promote our services and new products to a greater number of customers.',
+						img:      'persons/person-09-60x60',
+						name:     'Janice Allen',
+						position: 'Regular Client'
+					}).quote-boxed-1

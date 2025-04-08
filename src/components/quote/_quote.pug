@@ -1,0 +1,48 @@
+//- Quote author
+	@param {object} data - data object
+	@param {string} data.img - image name or path
+	@param {string} data.name - name of author
+	@param {string} data.position - position of author
+mixin quote-author( data )
+	// Quote author
+	.quote-author
+		.media.media-xs.align-items-center
+			.media-left
+				+img( data.img ).quote-author-image.rounded-circle
+			.media-body
+				.quote-author-name.h5= data.name
+				.quote-author-position= data.position
+
+//- Quote
+	@param {object} data - data object
+	@param {string} data.text - quote text
+	@param {string} data.img - quote img
+	@param {string} data.name - name of author
+	@param {string} data.position - position of author
+mixin quote( data )
+	// Quote
+	article.quote
+		.quote-body
+			q.quote-text.h4= data.text
+		+quote-author({
+			img: data.img,
+			name: data.name,
+			position: data.position
+		})
+
+
+//- Quote boxed
+	@param {object} data - data object
+	@param {string} data.text - quote text
+	@param {string} data.name - name of author
+	@param {string} data.position - position of author
+mixin quote-boxed( data )
+	// Quote boxed
+	article.quote.quote-boxed&attributes( attributes )
+		.quote-boxed-body
+			q.quote-boxed-text.h5= data.text
+		+quote-author({
+			img: data.img,
+			name: data.name,
+			position: data.position
+		})

@@ -1,0 +1,50 @@
+include ../wave/_wave
+include ../quote/_quote
+
+// Testimonials
+section#testimonials.section.section-lg.bg-transparent
+	.container
+		h2.text-center( data-animate!={ class: 'fadeInUp' } ) What our clients say
+		.row.justify-content-center
+			.col-xl-10
+				// Owl Carousel
+				.owl-carousel.owl-style-3(
+					data-owl={
+						margin: 40,
+						nav: true,
+						dots: true,
+						responsive: {
+							768: {
+								items: 2
+							},
+							1600: {
+								items: 2,
+								margin: 50
+							}
+						}
+					}
+				)
+					+quote-boxed({
+						text:     'I’ve never regretted hiring Lintense. They explained to me the strategies with the simplest SEO approach possible.',
+						img:      'persons/person-02-60x60',
+						name:     'Roy Sanders',
+						position: 'Regular Client'
+					})
+					+quote-boxed({
+						text:     'I was hesitant to hire Lintense but they proved me wrong. They are proficient and one of the meekest SEO teams around.',
+						img:      'persons/person-03-60x60',
+						name:     'Anna Robinson',
+						position: 'Regular Client'
+					})
+					+quote-boxed({
+						text:     'You have unique SEO consultants that are not only knowledgeable in the SEO, but also prompt with the service delivery.',
+						img:      'persons/person-04-60x60',
+						name:     'Craig Edwards',
+						position: 'Regular Client'
+					})
+					+quote-boxed({
+						text:     'Lintense is a great SEO team that walks the talk. I am very pleased that I hired them as the SEO consultants for my company.',
+						img:      'persons/person-05-60x60',
+						name:     'Judith Bell',
+						position: 'Regular Client'
+					})

@@ -1,0 +1,58 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/mixins";
+@import "../base/mixins";
+
+
+// Base
+hr {
+	background-color: transparent;
+}
+
+hr.divider {
+	height: 0;
+}
+
+.divider {
+	border-top-width: $hr-height;
+	border-top-style: solid;
+	border-color: $gray-200;
+	opacity: 1;
+}
+
+
+// Spacing
+* + .divider,
+.divider + * {
+	margin-top: px-to-rem( 40px );
+}
+
+
+// Modifying
+.divider-sm {
+	border-top-width: 1px;
+}
+
+.divider-lg {
+	border-top-width: 3px;
+}
+
+.divider-xl {
+	border-top-width: 4px;
+}
+
+
+// Contexts
+.context-dark {
+	.divider {
+		border-color: $white;
+	}
+}
+
+.bg-800 {
+	.divider {
+		border-color: rgba( $white, .15 );
+	}
+}

@@ -1,0 +1,13 @@
+//- Countdown
+	@param {object} data - countdown data object
+	@param {string} data.to - end date
+	@param {string} data.from - start date
+mixin countdown( data )
+	// Countdown
+	.countdown( data-countdown!={ from: data.from, to: data.to } )&attributes( attributes )
+		each item in [ 'days', 'hours', 'minutes', 'seconds' ]
+			- var attrCounter = {}; attrCounter[ 'data-counter-'+ item ] = '';
+			.countdown-block( class= 'countdown-block-' + item )
+				.countdown-wrap
+					.countdown-counter.h3&attributes( attrCounter ) 00
+					.countdown-title= item

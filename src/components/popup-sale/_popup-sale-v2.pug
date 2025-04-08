@@ -1,0 +1,37 @@
+include ../countdown/_countdown
+include ../input/_input
+
+// Popup sale
+#popup-sale.popup.popup-sale.text-center.modal( tabindex='-1', role='dialog' )
+	.modal-dialog.modal-lg( role='document' )
+		.modal-content.fadeInUpBig
+			button.close( type='button', data-dismiss='modal', aria-label='Close' )
+				span( aria-hidden='true' ) ×
+			.modal-body.popup-scroll.popup-sale-body
+				.popup-sale-left.bg-image( style='background-image: url(images/product-popup/image-01-320x550.jpg);' )
+				.popup-sale-right
+					h2.text-primary Flash Sale
+						br
+						| 50% Off
+					h4.fw-medium.font-family-base.mt-2 Huge discounts on all products!
+					+countdown({ from: '2020-03-20', to: '2020-12-01' }).countdown-boxed.countdown-gradient-orange-gold
+					form.rd-mailform( data-form-output='popup-sale-form-output', data-form-type='subscribe', method='post', action='components/rd-mailform/rd-mailform.php' )
+						.form-group
+							input.form-control( type='email', name='email', placeholder='Your email address *', data-constraints='@Email @Required' )
+						.offset-xxs
+							button.btn.btn-block.btn-round.btn-secondary.btn-nuka( type='submit' ) Get Your Discount Coupon
+								span.btn-overlay
+					.offset-xs
+						+checkbox( {
+							id: 'check3'
+						} )
+							| I agree to the
+							| #[a.link.link-primary( href='#' ) Privacy Policy] and
+							| #[a.link.link-primary( href='#' ) Terms of Use],
+							| and want to receive news
+
+			.popup-swipe
+			.popup-link
+				a.link.link-light( href='#' ) No, thank you. I don’t want to see this website.
+
+#popup-sale-form-output.form-output.snackbar.snackbar-secondary

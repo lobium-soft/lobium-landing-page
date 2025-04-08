@@ -1,0 +1,17 @@
+include ../lin-icon/_lin-icon
+
+// Popup join
+#popup-join.popup.text-center.modal( tabindex='-1', role='dialog' )
+	.modal-dialog( role='document' )
+		.modal-content.flipInX
+			button.close( type='button', data-dismiss='modal', aria-label='Close' )
+				span( aria-hidden='true' ) ×
+			.modal-body
+				+lin-like-2( 'gradient-2' ).lin-md
+				h3.mt-3 Awesome!
+				p.lead.fw-normal.mt-2 Now you can become a part of
+					br
+					| our friendly community.
+				.offset-xxs
+					a.btn.btn-round.btn-secondary.btn-nuka( href='#' ) Join Us
+						span.btn-overlay

@@ -1,0 +1,45 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../base/mixins";
+@import "../bootstrap/scss/mixins";
+
+
+// Base
+.popup-support {
+	.modal-dialog {
+		align-items: flex-end;
+		max-width: px-to-rem( 430px );
+		margin-right: 0;
+	}
+
+	.modal-content {
+		margin-bottom: 0;
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+
+	.modal-header {
+		border-bottom: none;
+	}
+
+	.modal-body {
+		padding-top: px-to-rem( 30px );
+	}
+
+	.close {
+		right: 0;
+		left: auto;
+	}
+}
+
+
+// Media
+@include media-breakpoint-up(xl) {
+	.popup-support {
+		.modal-content {
+			margin-right: px-to-rem( 35px );
+		}
+	}
+}

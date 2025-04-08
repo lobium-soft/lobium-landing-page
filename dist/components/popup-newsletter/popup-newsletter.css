@@ -1,0 +1,32 @@
+.popup-newsletter .modal-body {
+  padding: 0;
+}
+
+.popup-newsletter-left {
+  padding: 2.5rem 1.875rem;
+  flex-basis: 57.1428571429%;
+}
+
+.popup-newsletter-right {
+  padding: 2.5rem 1.875rem;
+  flex-basis: 42.8571428571%;
+}
+
+.popup-round .popup-newsletter-right {
+  border-radius: 0 0.75rem 0.75rem 0;
+}
+
+@media (max-width: 767.98px) {
+  .popup-newsletter-left,
+  .popup-newsletter-right {
+    flex-shrink: 0;
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+@media (min-width: 576px) {
+  .popup-newsletter-left {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}

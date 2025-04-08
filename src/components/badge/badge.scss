@@ -1,0 +1,14 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/mixins";
+@import "../base/mixins";
+@import "../bootstrap/scss/badge";
+
+
+// Base
+.badge {
+	vertical-align: middle;
+	box-shadow: $box-shadow;
+}

@@ -1,0 +1,27 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../base/mixins";
+@import "../bootstrap/scss/mixins";
+
+
+// Base
+.decor-right {
+	border-right: 5px solid;
+	padding-right: px-to-rem( 30px );
+}
+
+.decor-left {
+	border-left: 5px solid;
+	padding-left: px-to-rem( 30px );
+}
+
+
+// Theming
+@each $color, $value in $theme-colors {
+	.decor.decor-#{$color} {
+		border-color: $value;
+	}
+}
+

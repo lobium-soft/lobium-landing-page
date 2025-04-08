@@ -1,0 +1,40 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../base/mixins";
+@import "../bootstrap/scss/mixins";
+
+
+// Base
+p.rights {
+	font-size: 14px;
+	a {
+		color: inherit;
+		&:hover { color: $primary; }
+	}
+}
+
+
+// Spacing
+* + p.rights {
+	margin-top: px-to-rem( 20px );
+}
+
+.row + p.rights {
+	margin-top: px-to-rem( 40px );
+}
+
+
+// Media
+@include media-breakpoint-up(md) {
+	.row + p.rights {
+		margin-top: px-to-rem( 60px );
+	}
+}
+
+@include media-breakpoint-up( xl ) {
+	.row + p.rights {
+		margin-top: px-to-rem( 80px );
+	}
+}

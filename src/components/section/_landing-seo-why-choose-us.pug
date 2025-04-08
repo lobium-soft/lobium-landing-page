@@ -1,0 +1,34 @@
+include ../blurb/_blurb
+include ../lin-icon/_lin-icon
+
+// Why choose us
+section#advantages.section.section-lg.bg-transparent
+	.container
+		h2( data-animate!={ class: 'fadeInUp' } ) Why clients all over the
+			| #[br.d-none.d-sm-block]
+			| world choose Lintense
+		.row.row-offset-sm.row-30
+			.col-md-6.col-lg-4( data-animate!={ class: 'fadeInUp' } )
+				+blurb({
+					media:      'media-sm',
+					title:      'Qualified team of SEO experts working for you',
+					titleClass: 'mt-3',
+					text:       'We are not just a typical SEO company. We are the team of the qualified experts that will help you increase your website’s traffic and achieve higher rankings. '
+				})
+					+lin-idea.lin-lg.blurb-icon-svg
+			.col-md-6.col-lg-4( data-animate!={ class: 'fadeInUp' } )
+				+blurb({
+					media:      'media-sm',
+					title:      'We are 100%<br class="d-none d-md-block"> result-oriented',
+					titleClass: 'mt-3',
+					text:       'Lintense is always oriented on achieving results that positively influence our clients’ businesses. You can fully rely on us if you need SEO solutions that really work.'
+				})
+					+lin-code.lin-lg.blurb-icon-svg
+			.col-md-6.col-lg-4( data-animate!={ class: 'fadeInUp' } )
+				+blurb({
+					media:      'media-sm',
+					title:      'Always transparent and trustworthy',
+					titleClass: 'mt-3',
+					text:       'We are very clear about what we are doing on your behalf, and you will always have 24/7 access to all of your data (not just limited access).'
+				})
+					+lin-certificate.lin-lg.blurb-icon-svg

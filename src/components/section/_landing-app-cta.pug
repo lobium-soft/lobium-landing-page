@@ -1,0 +1,14 @@
+include ../wave/_wave
+include ../button/_button
+
+// CTA
+section.section.section-lg.bg-primary-violet.context-dark.position-relative.overflow-hidden
+	+wave-dark-1.wave-dark-1( style='bottom: -16vw' )
+	.container
+		.row.row-30.align-items-center.justify-content-between
+			.col-md-7.col-xl-6( data-animate!={ class: 'fadeInUp' } )
+				.decor.decor-left
+					h2 Ranked #1 financial app by reputable reviewers
+					p Lintense is one of the best and award-winning apps for your mobile. Try it now!
+			.col-md-4.col-lg-auto( data-animate!={ class: 'fadeInUp' } )
+				+button-store

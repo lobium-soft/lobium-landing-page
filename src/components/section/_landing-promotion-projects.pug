@@ -1,0 +1,37 @@
+include ../thumbnail/_thumbnail
+
+// Carousel
+section#portfolio.section.section-lg.bg-transparent
+	.container
+		.row.justify-content-center
+			.col-10.col-xs-8
+				// Owl Carousel
+				.owl-carousel.owl-visible(
+					data-owl!={
+						margin: 10,
+						loop: false,
+						dots: true,
+						autoplayTimeout: '2000',
+						smartSpeed: '1000'
+					}, data-lightgallery
+				)
+					+thumbnail({
+						imgOriginal: 'image-30-800x1200',
+						img:         'image-30-830x604'
+					})
+					+thumbnail({
+						imgOriginal: 'image-27-800x1200',
+						img:         'image-27-830x604'
+					})
+					+thumbnail({
+						imgOriginal: 'image-31-800x1200',
+						img:         'image-31-830x604'
+					})
+					+thumbnail({
+						imgOriginal: 'image-32-1200x800',
+						img:         'image-32-830x604'
+					})
+					+thumbnail({
+						imgOriginal: 'image-33-1200x800',
+						img:         'image-33-830x604'
+					})

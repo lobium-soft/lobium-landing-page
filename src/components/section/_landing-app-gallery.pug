@@ -1,0 +1,24 @@
+// Carousel
+section.section.section-lg.bg-transparent#gallery
+	.container
+		// Owl Carousel
+		.owl-carousel.owl-style-4.text-center(
+			data-owl={
+				items: 2,
+				loop: false,
+				center: true,
+				dots: true,
+				autoplayTimeout: '2000',
+				smartSpeed: '1000',
+				responsive: {
+					576: {
+						items: 3
+					}
+				}
+			}
+		)
+			div: +img( 'image-22-284x590.png' ).filter-shadow-lg
+			div: +img( 'image-23-284x590.png' ).filter-shadow-lg
+			div: +img( 'image-24-284x590.png' ).filter-shadow-lg
+			div: +img( 'image-25-284x590.png' ).filter-shadow-lg
+			div: +img( 'image-26-284x590.png' ).filter-shadow-lg

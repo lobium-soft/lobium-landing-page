@@ -1,0 +1,16 @@
+include  ../wave/_wave
+include ../video/_video
+
+// Watch Tutorial
+section#tutorial.section.section-lg.bg-transparent.text-center.position-relative
+	+wave-light
+	.container
+		h2 Watch a quick tutorial
+		p.lead This simple & short yet informative tutorial can help you better understand how Lintense App
+			| #[br.d-none.d-lg-block]
+			| works and start managing your spendings right away!
+		.row.justify-content-center( data-animate!={ class: 'fadeInUp' } )
+			.col-xs-8
+				+video({
+					img: 'image-01-660x406'
+				})

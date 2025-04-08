@@ -1,0 +1,72 @@
+// Base
+.blurb-creative {
+	display: flex;
+	position: relative;
+	padding: px-to-rem( 20px, 0 );
+
+	&:first-child {
+		padding-top: 0;
+
+		.blurb-creative-icon::before {
+			top: 50%;
+		}
+	}
+
+	&:last-child {
+		padding-bottom: 0;
+
+		.blurb-creative-icon::before {
+			bottom: 50%;
+		}
+	}
+}
+
+.blurb-creative-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: px-to-rem( 80px );
+	height: px-to-rem( 80px );
+	border-radius: 50%;
+	color: $gray-700;
+	background-color: $gray-100;
+
+	&::before {
+		position: absolute;
+		content: '';
+		top: 0;
+		bottom: 0;
+		width: 0;
+		border-left: 1px solid $gray-100;
+	}
+}
+
+.blurb-creative-icon-svg {
+	position: relative;
+}
+
+
+// Spacing
+* + .blurb-creative-group {
+	margin-top: px-to-rem( 30px );
+}
+
+* + .blurb-creative-text {
+	margin-top: px-to-rem( 10px );
+}
+
+.blurb-creative-group + .btns {
+	margin-top: px-to-rem( 40px );
+}
+
+
+// Media
+@include media-breakpoint-up(lg) {
+	* + .blurb-creative-group {
+		margin-top: px-to-rem( 50px );
+	}
+
+	.blurb-creative-group + .btns {
+		margin-top: px-to-rem( 50px );
+	}
+}
