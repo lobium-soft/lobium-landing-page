@@ -1,4 +1,4 @@
-FROM node:22-alpine
+FROM --platform=linux/amd64 node:22-alpine
 
 # Install Python 3 and other dependencies
 RUN apk add --no-cache python3 py3-pip make g++

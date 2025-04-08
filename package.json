@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "gulp dev",
     "start": "gulp start",
-    "start:prod": "docker-compose up"
+    "start:prod": "docker-compose up",
+	"deploy": "./aws/deploy-to-ecs.sh"
   },
   "dependencies": {
     "express": "4.18.2",
