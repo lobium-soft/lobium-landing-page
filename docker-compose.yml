@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  lobium-landing-page:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: lobium-landing-page
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=production
+      - PORT=8080
+    restart: unless-stopped
+    volumes:
+      - ./src:/usr/src/app/src
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8080"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s

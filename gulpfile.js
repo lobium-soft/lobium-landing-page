@@ -40,8 +40,8 @@ function startExpress() {
 	const app = expressSetup();
 
 	// listens to server at PORT
-	app.listen( 3000, function () {
-		console.log( `[Express] Server listening on port 3000` );
+	app.listen( 8080, function () {
+		console.log( `[Express] Server listening on port 8080` );
 	});
 }
 
@@ -52,8 +52,8 @@ function startExpressWithBasicAuth() {
 	});
 
 	// listens to server at PORT
-	app.listen( 3000, function () {
-		console.log( `[Express] Server with basic auth listening on port 3000` );
+	app.listen( 8080, function () {
+		console.log( `[Express] Server with basic auth listening on port 8080` );
 	});
 }
 
