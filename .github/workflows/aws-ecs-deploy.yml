@@ -1,0 +1,181 @@
+name: Deploy to AWS ECS
+
+on:
+  push:
+    branches:
+      - deploy
+
+jobs:
+  deploy:
+    name: Deploy to AWS ECS
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+          
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+          
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+        
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.login-ecr.outputs.registry }}/lobium-landing-page:latest
+          platforms: linux/amd64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          
+      - name: Create or update IAM role
+        run: |
+          # Check if role exists
+          if ! aws iam get-role --role-name ecsTaskExecutionRole 2>/dev/null; then
+            # Create the role
+            aws iam create-role \
+              --role-name ecsTaskExecutionRole \
+              --assume-role-policy-document '{
+                "Version": "2012-10-17",
+                "Statement": [
+                  {
+                    "Effect": "Allow",
+                    "Principal": {
+                      "Service": "ecs-tasks.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                  }
+                ]
+              }'
+            
+            # Attach the policy
+            aws iam attach-role-policy \
+              --role-name ecsTaskExecutionRole \
+              --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
+          fi
+          
+      - name: Create CloudWatch log group
+        run: |
+          aws logs describe-log-groups --log-group-name-prefix /ecs/lobium-landing-page > /dev/null 2>&1 || \
+          aws logs create-log-group --log-group-name /ecs/lobium-landing-page
+          
+      - name: Update task definition
+        run: |
+          AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query "Account" --output text)
+          sed "s/ACCOUNT_ID/$AWS_ACCOUNT_ID/g; s/REGION/us-east-1/g" aws/aws-ecs-task-definition.json > aws/task-definition-updated.json
+          
+      - name: Register task definition
+        id: register-task
+        run: |
+          AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query "Account" --output text)
+          aws ecs register-task-definition \
+            --cli-input-json file://aws/task-definition-updated.json \
+            --execution-role-arn arn:aws:iam::$AWS_ACCOUNT_ID:role/ecsTaskExecutionRole
+            
+      - name: Create ECS cluster if needed
+        run: |
+          aws ecs describe-clusters --clusters lobium-cluster | grep "clusterName" > /dev/null || \
+          aws ecs create-cluster --cluster-name lobium-cluster
+          
+      - name: Set up networking
+        id: networking
+        run: |
+          # Get VPC ID
+          VPC_ID=$(aws ec2 describe-vpcs --query "Vpcs[0].VpcId" --output text)
+          echo "vpc_id=$VPC_ID" >> $GITHUB_OUTPUT
+          
+          # Check if security group exists
+          SG_ID=$(aws ec2 describe-security-groups --filters "Name=group-name,Values=lobium-sg" --query "SecurityGroups[0].GroupId" --output text)
+          
+          if [ "$SG_ID" == "None" ]; then
+            # Create security group
+            SG_ID=$(aws ec2 create-security-group --group-name lobium-sg --description "Security group for Lobium Landing Page" --vpc-id $VPC_ID --output text --query "GroupId")
+            
+            # Add inbound rules
+            aws ec2 authorize-security-group-ingress --group-id $SG_ID --protocol tcp --port 80 --cidr 0.0.0.0/0
+            aws ec2 authorize-security-group-ingress --group-id $SG_ID --protocol tcp --port 8080 --cidr 0.0.0.0/0
+          fi
+          
+          echo "sg_id=$SG_ID" >> $GITHUB_OUTPUT
+          
+          # Get subnet IDs
+          SUBNET_IDS=$(aws ec2 describe-subnets --filters "Name=vpc-id,Values=$VPC_ID" --query "Subnets[0:2].SubnetId" --output text)
+          SUBNET_ID_1=$(echo $SUBNET_IDS | cut -d' ' -f1)
+          SUBNET_ID_2=$(echo $SUBNET_IDS | cut -d' ' -f2)
+          
+          echo "subnet_id_1=$SUBNET_ID_1" >> $GITHUB_OUTPUT
+          echo "subnet_id_2=$SUBNET_ID_2" >> $GITHUB_OUTPUT
+          
+      - name: Deploy to ECS
+        run: |
+          # Check if service exists
+          SERVICE_EXISTS=$(aws ecs describe-services --cluster lobium-cluster --services lobium-service | grep "ACTIVE")
+          
+          if [ -z "$SERVICE_EXISTS" ]; then
+            # Create load balancer
+            LB_ARN=$(aws elbv2 create-load-balancer \
+              --name lobium-lb \
+              --subnets ${{ steps.networking.outputs.subnet_id_1 }} ${{ steps.networking.outputs.subnet_id_2 }} \
+              --security-groups ${{ steps.networking.outputs.sg_id }} \
+              --query "LoadBalancers[0].LoadBalancerArn" \
+              --output text)
+            
+            # Create target group
+            TG_ARN=$(aws elbv2 create-target-group \
+              --name lobium-tg \
+              --protocol HTTP \
+              --port 8080 \
+              --vpc-id ${{ steps.networking.outputs.vpc_id }} \
+              --target-type ip \
+              --health-check-path "/" \
+              --query "TargetGroups[0].TargetGroupArn" \
+              --output text)
+            
+            # Create listener
+            aws elbv2 create-listener \
+              --load-balancer-arn $LB_ARN \
+              --protocol HTTP \
+              --port 80 \
+              --default-actions Type=forward,TargetGroupArn=$TG_ARN
+            
+            # Create service
+            aws ecs create-service \
+              --cluster lobium-cluster \
+              --service-name lobium-service \
+              --task-definition lobium-landing-page \
+              --desired-count 1 \
+              --launch-type FARGATE \
+              --network-configuration "awsvpcConfiguration={subnets=[${{ steps.networking.outputs.subnet_id_1 }}],securityGroups=[${{ steps.networking.outputs.sg_id }}],assignPublicIp=ENABLED}" \
+              --load-balancers "targetGroupArn=$TG_ARN,containerName=lobium-landing-page,containerPort=8080"
+            
+            # Get load balancer DNS
+            LB_DNS=$(aws elbv2 describe-load-balancers --load-balancer-arns $LB_ARN --query "LoadBalancers[0].DNSName" --output text)
+            echo "Application deployed! Access it at: http://$LB_DNS"
+          else
+            # Update service
+            aws ecs update-service \
+              --cluster lobium-cluster \
+              --service lobium-service \
+              --task-definition lobium-landing-page \
+              --force-new-deployment
+            
+            # Get load balancer DNS
+            LB_ARN=$(aws elbv2 describe-target-groups --names lobium-tg --query "TargetGroups[0].LoadBalancerArns[0]" --output text)
+            LB_DNS=$(aws elbv2 describe-load-balancers --load-balancer-arns $LB_ARN --query "LoadBalancers[0].DNSName" --output text)
+            echo "Application updated! Access it at: http://$LB_DNS"
+          fi
