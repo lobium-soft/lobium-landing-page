@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "gulp dev",
     "start": "gulp start",
-    "start:prod": "start-with-basic-auth",
+    "start:prod": "gulp start-with-basic-auth",
 	"start:docker": "docker-compose up"
   },
   "dependencies": {
