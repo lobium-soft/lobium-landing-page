@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "gulp dev",
     "start": "gulp start",
-    "start:prod": "docker-compose up",
-	"deploy": "./aws/deploy-to-ecs.sh"
+    "start:prod": "start-with-basic-auth",
+	"start:docker": "docker-compose up"
   },
   "dependencies": {
     "express": "4.18.2",
