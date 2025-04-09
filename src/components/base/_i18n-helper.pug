@@ -1,0 +1,18 @@
+//- i18n Helper Mixins
+mixin t(key)
+  = __(key)
+
+mixin tn(key, count)
+  = __n(key, count)
+
+//- Language switcher helper
+mixin languageSwitcher()
+  .language-switcher
+    if isEnglish
+      a.language-link.active(href='#') EN
+      span.language-separator |
+      a.language-link(href='/switch-language/fr') FR
+    else
+      a.language-link(href='/switch-language/en') EN
+      span.language-separator |
+      a.language-link.active(href='#') FR

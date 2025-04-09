@@ -1,0 +1,10 @@
+//- Language Switcher Component
+.language-switcher
+  if isEnglish
+    a.language-link.active(href='#') EN
+    span.language-separator |
+    a.language-link(href='/') FR
+  else
+    a.language-link(href='/en') EN
+    span.language-separator |
+    a.language-link.active(href='#') FR

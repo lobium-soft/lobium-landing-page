@@ -6,10 +6,8 @@ section.section.section-lg.context-dark.text-500.text-center.position-relative.p
 		+wave-dark
 	.container
 		div( data-animate!={ class: 'fadeInUp' } )
-			h6 Nous sommes Lobium
-			h1 Notre expérience au service de l’innovation
-			p.lead.d-none.d-sm-block Forts de nombreuses années d'expérience sur le marché numérique, nous pouvons vous offrir ce que vous recherchez,
-				| #[br.d-none.d-lg-block]
-				| de la simple landing page au système complexe nécessitant un savoir faire de pointe
+			h6= __('intro.subtitle')
+			h1= __('intro.title')
+			p.lead.d-none.d-sm-block= __('intro.description')
 		+img( 'blurs/blur-01-830x473.png' )( data-animate!={ class: 'fadeInUp' } )
 

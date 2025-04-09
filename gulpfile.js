@@ -1,9 +1,8 @@
-
 function startExpressWithHotReload() {
 	const browserSync = require( 'browser-sync' ),
 		gulp = require( 'gulp' );
 
-	const app = expressSetup({ 
+	const app = expressStart({ 
 		useBasicAuth: false,
 		debug: true 
 	});
@@ -37,7 +36,7 @@ function startExpressWithHotReload() {
 }
 
 function startExpress() {
-	const app = expressSetup();
+	const app = expressStart();
 
 	// listens to server at PORT
 	app.listen( 8080, function () {
@@ -46,7 +45,7 @@ function startExpress() {
 }
 
 function startExpressWithBasicAuth() {
-	const app = expressSetup({
+	const app = expressStart({
 		useBasicAuth: true,
 		debug: false
 	});
@@ -57,61 +56,51 @@ function startExpressWithBasicAuth() {
 	});
 }
 
-function expressSetup (config = { useBasicAuth: false, debug: false }) {
-	const
-		express        = require( 'express' ),
-		expressBasicAuth = require( 'express-basic-auth' ),
-		sassMiddleware = require( 'node-sass-middleware' ),
-		path           = require( 'path' ),
-		app            = express();
-
-	// Add a dedicated health check endpoint that bypasses authentication
-	app.get('/health', (req, res) => {
-		res.status(200).send('OK');
+function configAppForI18n(app) {
+	const i18n = require( 'i18n' ),
+		path = require( 'path' );
+		
+	// Configure i18n
+	i18n.configure({
+		locales: supportedLocales,
+		directory: path.join(__dirname, 'locales'),
+		defaultLocale: 'fr',
+		queryParameter: 'lang',
+		cookie: 'lang',
+		registerGlobals: false,
+		preserveLocaleOnApiCalls: true
 	});
 
-	if (config.useBasicAuth) {
-		app.use( expressBasicAuth({
-			users: {
-				lobium: 'jomathlobium'
-			},
-			challenge: true
-		}));
-	}
+	// Initialize i18n middleware
+	app.use(i18n.init);
 
-	// sets template engine
-	app.set( 'view engine', 'pug' );
+	app.use((req, res, next) => {
+		// Make i18n available to all templates
+		res.locals.__ = res.__ = function() {
+			return i18n.__.apply(req, arguments);
+		};
+		
+		res.locals.__n = res.__n = function() {
+			return i18n.__n.apply(req, arguments);
+		};
 
-	// sets directory name
-	app.set( 'views', './src/' );
+		res.locals.getLocale = req.getLocale = function() {
+			return i18n.getLocale.apply(req, arguments);
+		};
 
-	app.get( '/', function ( req, res ) {
-		res.render( `index.pug` );
+		console.log(req.getLocale());
+
+		res.locals.isEnglish = req.getLocale() === 'en';
+		res.locals.isFrench = req.getLocale() === 'fr';
+
+		next();
 	});
+}
 
-	app.get( /.+\.pug/, function ( req, res ) {
-		res.render( `${req.url}` );
-	});
+function expressStart (config = { useBasicAuth: false, debug: false }) {
+	const { startApp } = require( './src/server/app' );
 
-	app.get( /.+\.html/, function ( req, res ) {
-		let tmp = req.url.replace( /html$/, 'pug' );
-		res.render( `${tmp}` );
-	});
-
-	app.use( sassMiddleware({
-		src: path.resolve( __dirname, 'src' ),
-		dest: path.resolve( __dirname, 'src' ),
-		debug: config.debug,
-		outputStyle: 'expanded',
-		indentType: 'tab',
-		indentWidth: 1,
-		linefeed: 'cr'
-	}));
-
-	// static files
-	app.use( express.static( 'src' ) );
-
-	return app;
+	return startApp(config);
 }
 
 exports['dev'] = startExpressWithHotReload;
