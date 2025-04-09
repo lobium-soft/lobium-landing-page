@@ -183,6 +183,11 @@ $rd-navbar-toggle-color: $gray-500;
 	display: none;
 }
 
+// RD Navbar Language Switcher
+.rd-navbar.language-link {
+	text-decoration: underline;
+}
+
 
 @import "rd-navbar_includes/rd-navbar-static";
 @import "rd-navbar_includes/rd-navbar-fixed";

@@ -13,7 +13,7 @@ mixin navigation( menu, type )
 							+navigation( item.dropdown, 'dropdown' )
 						if( item.megamenu )
 							+navigation( item.megamenu, 'megamenu' )
-						if( item.language )
+						if( item.languageSwitcher )
 							include ../language-switcher/_language-switcher
 
 	else if( type === 'dropdown' )
