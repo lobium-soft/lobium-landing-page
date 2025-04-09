@@ -1,6 +1,6 @@
 # Lobium Landing Page
 
-This repository contains the landing page for Lobium, a software service business. The landing page is designed to showcase Lobium's services, projects, technologies, and company information in a modern and professional manner.
+This repository contains the landing page for Lobium, a software service business. The landing page is designed to showcase Lobium's services, projects, technologies, and company information in a modern and professional manner. The landing page is currently deployed on AWS ECS and is accessible at https://lobium-soft.com.
 
 ## Project Stack
 
@@ -98,3 +98,50 @@ This will start the Express server at http://localhost:3000.
 - Easy to customize and extend
 - Component-based architecture using Pug templates
 - Sass styling with organized structure
+
+## Deployment
+
+### AWS ECS Deployment
+
+This project is configured to automatically deploy to AWS ECS (Elastic Container Service) using GitHub Actions.
+
+#### Deployment Process
+
+1. **Push to the `deploy` branch**:
+   ```bash
+   git checkout -b deploy
+   git push origin deploy
+   ```
+
+2. **GitHub Actions Workflow**:
+   - The push to the `deploy` branch triggers the GitHub Actions workflow defined in `.github/workflows/aws-ecs-deploy.yml`
+   - The workflow builds a Docker image and pushes it to Amazon ECR
+   - It then creates or updates the ECS service with the new image
+
+3. **Infrastructure Created**:
+   - ECS Cluster: `lobium-cluster`
+   - ECS Service: `lobium-service`
+   - Load Balancer: `lobium-lb`
+   - Target Group: `lobium-tg` (with health check on `/health` endpoint)
+
+4. **Access the Deployed Application**:
+   - The application will be available at https://lobium-soft.com
+
+#### Prerequisites for Deployment
+
+- AWS credentials (Access Key ID and Secret Access Key) configured as GitHub repository secrets:
+  - `AWS_ACCESS_KEY_ID`
+  - `AWS_SECRET_ACCESS_KEY`
+- The AWS user must have permissions for ECR, ECS, IAM, CloudWatch Logs, EC2, and Load Balancer services
+
+#### Local Docker Testing
+
+Before deploying, you can test the Docker container locally:
+
+```bash
+npm run start:docker
+# or
+yarn start:docker
+```
+
+This will build and run the Docker container locally, making the application available at http://localhost:8080.
