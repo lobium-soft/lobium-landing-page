@@ -31,7 +31,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ghcr.io/${{ github.repository }}/lobium-landing-page
+          images: ghcr.io/${{ github.repository }}
           tags: |
             type=sha,format=short
             type=ref,event=branch
