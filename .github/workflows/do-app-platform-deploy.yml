@@ -23,7 +23,7 @@ jobs:
         run: |
           if [ ! -f ".do/app.yaml" ]; then
             mkdir -p .do
-            cat > .do/app.yaml << "ENDOFFILE"
+            cat > .do/app.yaml <<ENDOFFILE
             name: lobium-landing-page
             region: nyc
             services:
