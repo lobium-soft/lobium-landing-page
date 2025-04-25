@@ -75,6 +75,7 @@ jobs:
           # Check if app already exists
           # Create a temp file with the secret values for first deployment only
           sed -i "s|\${github_username}|${{ github.actor }}|g; s|\${github_token}|${{ secrets.GITHUB_TOKEN }}|g" .do/app.yaml
+          cat .do/app.yaml
           echo "Prepared app.yaml with initial credentials for deployment."
       
       - name: Deploy to App Platform

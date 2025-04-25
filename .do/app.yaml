@@ -1,14 +1,5 @@
 name: lobium-landing-page
 region: nyc
-envs:
-  - key: GITHUB_USERNAME
-    scope: RUN_AND_BUILD_TIME
-    type: SECRET
-    value: ${github_username}
-  - key: GITHUB_TOKEN
-    scope: RUN_AND_BUILD_TIME
-    type: SECRET
-    value: ${github_token}
 services:
   - name: web
     image: 
