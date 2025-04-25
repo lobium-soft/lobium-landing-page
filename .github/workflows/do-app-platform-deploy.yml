@@ -19,34 +19,16 @@ jobs:
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
           
-      - name: Create app.yaml if it doesn't exist
+      # Use pre-created app.yaml file in repo
+      - name: Verify app.yaml exists
         run: |
           if [ ! -f ".do/app.yaml" ]; then
-            mkdir -p .do
-            cat > .do/app.yaml <<ENDOFFILE
-            name: lobium-landing-page
-            region: nyc
-            services:
-              - name: web
-                dockerfile_path: Dockerfile
-                github:
-                  branch: deploy
-                  repo: ${{ github.repository }}
-                http_port: 8080
-                instance_count: 1
-                instance_size_slug: basic-xxs
-                routes:
-                  - path: /
-            alerts:
-              - rule: DEPLOYMENT_FAILED
-              - rule: DOMAIN_FAILED
-            ENDOFFILE
-
-            # Fix indentation in the generated file
-            sed -i 's/^            //' .do/app.yaml
-            echo "Created app.yaml configuration file"
+            echo "Error: .do/app.yaml file not found!"
+            echo "Please make sure the file exists in your repository."
+            exit 1
           else
-            echo "app.yaml already exists"
+            echo "Found app.yaml file, proceeding with deployment."
+            cat .do/app.yaml
           fi
           
       - name: Deploy to App Platform
