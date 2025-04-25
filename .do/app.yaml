@@ -16,9 +16,7 @@ services:
       registry: lobium-soft
       repository: lobium-landing-page
       tag: latest
-      registry_auth:
-        username: ${github_username}
-        password: ${github_token}
+      registry_credentials: "${github_username}:${github_token}"
     http_port: 8080
     instance_count: 1
     instance_size_slug: apps-d-1vcpu-4gb
