@@ -23,25 +23,27 @@ jobs:
         run: |
           if [ ! -f ".do/app.yaml" ]; then
             mkdir -p .do
-            cat > .do/app.yaml << 'EOF'
-              name: lobium-landing-page
-              region: nyc
-              services:
-                - name: web
-                  dockerfile_path: Dockerfile
-                  github:
-                    branch: deploy
-                    repo: ${{ github.repository }}
-                  http_port: 8080
-                  instance_count: 1
-                  instance_size_slug: basic-xxs
-                  routes:
-                    - path: /
-              alerts:
-                - rule: DEPLOYMENT_FAILED
-                - rule: DOMAIN_FAILED
-            EOF
-            
+            cat > .do/app.yaml << "ENDOFFILE"
+            name: lobium-landing-page
+            region: nyc
+            services:
+              - name: web
+                dockerfile_path: Dockerfile
+                github:
+                  branch: deploy
+                  repo: ${{ github.repository }}
+                http_port: 8080
+                instance_count: 1
+                instance_size_slug: basic-xxs
+                routes:
+                  - path: /
+            alerts:
+              - rule: DEPLOYMENT_FAILED
+              - rule: DOMAIN_FAILED
+            ENDOFFILE
+
+            # Fix indentation in the generated file
+            sed -i 's/^            //' .do/app.yaml
             echo "Created app.yaml configuration file"
           else
             echo "app.yaml already exists"
@@ -67,4 +69,3 @@ jobs:
           
           echo "Application deployed successfully!"
           echo "Your app is available at: https://$APP_URL"
-
