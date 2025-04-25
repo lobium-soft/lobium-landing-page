@@ -23,7 +23,7 @@ jobs:
         run: |
           if [ ! -f ".do/app.yaml" ]; then
             mkdir -p .do
-            cat > .do/app.yaml << EOF
+            cat > .do/app.yaml << EOL
             name: lobium-landing-page
             region: nyc
             services:
@@ -40,7 +40,7 @@ jobs:
             alerts:
               - rule: DEPLOYMENT_FAILED
               - rule: DOMAIN_FAILED
-            EOF
+            EOL
             
             echo "Created app.yaml configuration file"
           else
