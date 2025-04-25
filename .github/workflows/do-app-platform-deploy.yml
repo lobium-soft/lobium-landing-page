@@ -67,3 +67,4 @@ jobs:
           
           echo "Application deployed successfully!"
           echo "Your app is available at: https://$APP_URL"
+
