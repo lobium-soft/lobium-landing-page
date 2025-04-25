@@ -1,0 +1,16 @@
+name: lobium-landing-page
+region: nyc
+services:
+  - name: web
+    dockerfile_path: Dockerfile
+    github:
+      branch: deploy
+      repo: jonathanroyabstraction/lobium-landing-page
+    http_port: 8080
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    routes:
+      - path: /
+alerts:
+  - rule: DEPLOYMENT_FAILED
+  - rule: DOMAIN_FAILED
