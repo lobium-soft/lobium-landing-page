@@ -69,6 +69,7 @@ const startApp = (config = { useBasicAuth: false, debug: false }) => {
         // Render the page after locale is properly set
         res.render('index.pug');
     });
+    
 
     // static 
     app.use( express.static( 'src' ) );
