@@ -6,31 +6,73 @@ on:
       - deploy
 
 jobs:
-  deploy:
-    name: Deploy to DigitalOcean App Platform
+  build-and-deploy:
+    name: Build and Deploy to DigitalOcean App Platform
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Extract metadata for Docker
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ghcr.io/${{ github.repository }}/lobium-landing-page
+          tags: |
+            type=sha,format=short
+            type=ref,event=branch
+            latest
+      
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      
       - name: Install doctl
         uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-          
+      
       # Use pre-created app.yaml file in repo
-      - name: Verify app.yaml exists
+      - name: Update app.yaml with latest image
         run: |
           if [ ! -f ".do/app.yaml" ]; then
             echo "Error: .do/app.yaml file not found!"
             echo "Please make sure the file exists in your repository."
             exit 1
           else
-            echo "Found app.yaml file, proceeding with deployment."
+            echo "Found app.yaml file, updating with latest image tag."
+            
+            # Get the first tag (should be the 'latest' tag)
+            LATEST_IMAGE=$(echo "${{ steps.meta.outputs.tags }}" | head -n 1)
+            echo "Using image: ${LATEST_IMAGE}"
+            
+            # Update the image in app.yaml
+            sed -i "s|image:.*|image: ${LATEST_IMAGE}|" .do/app.yaml
+            
+            echo "Updated app.yaml:"
             cat .do/app.yaml
           fi
-          
+      
       - name: Deploy to App Platform
         run: |
           # Check if app already exists
@@ -43,7 +85,7 @@ jobs:
             echo "Updating existing app..."
             doctl apps update $APP_ID --spec .do/app.yaml --wait
           fi
-          
+      
       - name: Get App URL
         run: |
           APP_ID=$(doctl apps list --no-header --format ID,Spec.Name | grep lobium-landing-page | awk '{print $1}')
