@@ -64,33 +64,18 @@ jobs:
             cat .do/app.yaml
           fi
       
-      - name: Create GitHub Registry Credentials in DigitalOcean
+      - name: Prepare GitHub Registry Credentials
         run: |
-          # Create or update GitHub credentials as DO secrets
-          # First, check if the secrets exist already
-          APP_ID=$(doctl apps list --no-header --format ID,Spec.Name | grep lobium-landing-page | awk '{print $1}' || echo "")
-          
-          if [ -z "$APP_ID" ]; then
-            echo "App doesn't exist yet, will create secrets during app creation."
-          else
-            echo "Setting up GitHub registry credentials as secrets..."
-            
-            # Create or update the GitHub username secret
-            doctl apps create-secret $APP_ID \
-              --key github_username \
-              --value ${{ github.actor }} \
-              --scope APP \
-              --replace
-            
-            # Create or update the GitHub token secret
-            doctl apps create-secret $APP_ID \
-              --key github_token \
-              --value ${{ secrets.GITHUB_TOKEN }} \
-              --scope APP \
-              --replace
-              
-            echo "Secrets created successfully!"
-          fi
+          # Store the GitHub credentials as environment variables
+          echo "GITHUB_USERNAME=${{ github.actor }}" >> $GITHUB_ENV
+          echo "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
+      
+      - name: Initial App Creation Setup
+        run: |
+          # Check if app already exists
+          # Create a temp file with the secret values for first deployment only
+          sed -i "s|\${github_username}|${{ github.actor }}|g; s|\${github_token}|${{ secrets.GITHUB_TOKEN }}|g" .do/app.yaml
+          echo "Prepared app.yaml with initial credentials for deployment."
       
       - name: Deploy to App Platform
         run: |
