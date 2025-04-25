@@ -53,24 +53,43 @@ jobs:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
       
       # Use pre-created app.yaml file in repo
-      - name: Update app.yaml with latest image
+      - name: Verify app.yaml exists
         run: |
           if [ ! -f ".do/app.yaml" ]; then
             echo "Error: .do/app.yaml file not found!"
             echo "Please make sure the file exists in your repository."
             exit 1
           else
-            echo "Found app.yaml file, updating with latest image tag."
-            
-            # Get the first tag (should be the 'latest' tag)
-            LATEST_IMAGE=$(echo "${{ steps.meta.outputs.tags }}" | head -n 1)
-            echo "Using image: ${LATEST_IMAGE}"
-            
-            # Update the image in app.yaml
-            sed -i "s|image:.*|image: ${LATEST_IMAGE}|" .do/app.yaml
-            
-            echo "Updated app.yaml:"
+            echo "Found app.yaml file, proceeding with deployment."
             cat .do/app.yaml
+          fi
+      
+      - name: Create GitHub Registry Credentials in DigitalOcean
+        run: |
+          # Create or update GitHub credentials as DO secrets
+          # First, check if the secrets exist already
+          APP_ID=$(doctl apps list --no-header --format ID,Spec.Name | grep lobium-landing-page | awk '{print $1}' || echo "")
+          
+          if [ -z "$APP_ID" ]; then
+            echo "App doesn't exist yet, will create secrets during app creation."
+          else
+            echo "Setting up GitHub registry credentials as secrets..."
+            
+            # Create or update the GitHub username secret
+            doctl apps create-secret $APP_ID \
+              --key github_username \
+              --value ${{ github.actor }} \
+              --scope APP \
+              --replace
+            
+            # Create or update the GitHub token secret
+            doctl apps create-secret $APP_ID \
+              --key github_token \
+              --value ${{ secrets.GITHUB_TOKEN }} \
+              --scope APP \
+              --replace
+              
+            echo "Secrets created successfully!"
           fi
       
       - name: Deploy to App Platform

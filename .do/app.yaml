@@ -1,8 +1,24 @@
 name: lobium-landing-page
 region: nyc
+envs:
+  - key: GITHUB_USERNAME
+    scope: RUN_AND_BUILD_TIME
+    type: SECRET
+    value: ${github_username}
+  - key: GITHUB_TOKEN
+    scope: RUN_AND_BUILD_TIME
+    type: SECRET
+    value: ${github_token}
 services:
   - name: web
-    image: ghcr.io/lobium-soft/lobium-landing-page/lobium-landing-page:latest
+    image: 
+      registry_type: GHCR
+      registry: lobium-soft
+      repository: lobium-landing-page
+      tag: latest
+      registry_auth:
+        username: ${github_username}
+        password: ${github_token}
     http_port: 8080
     instance_count: 1
     instance_size_slug: apps-d-1vcpu-4gb
